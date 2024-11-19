@@ -25,13 +25,13 @@ add_filter('block_categories_all', 'hc_add_block_categories', 10, 2);
 
 function hc_add_block_categories($categories, $post) {
     // Add a custom category
-    $heartcount = [
-        'slug'  => 'heartcount',
-        'title' => __('HeartCount', 'textdomain'),
+    $scstatesman = [
+        'slug'  => 'scstatesman',
+        'title' => __('SC Statesman', 'scs'),
         'icon'  => 'star', // Optional: you can use a Dashicon or custom SVG
     ];
 
-    array_unshift($categories, $heartcount);
+    array_unshift($categories, $scstatesman);
 
     return $categories;
 }

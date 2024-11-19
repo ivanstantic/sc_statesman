@@ -1,4 +1,4 @@
-# WordPress heartcount theme
+# WordPress scstatesman theme
 
 This is a wordpress theme focused on page speed optimized approach to web development with strict coding styles and clean, flexible and 
 easily maintainable code.
@@ -68,13 +68,13 @@ Add these code snippets to the header:
         font-style: normal;
         font-weight: 400;
         font-display: optional;
-        src: url('/wp-content/themes/heartcount/_assets/public/fonts/montserrat-v15-latin-regular.eot'); /* IE9 Compat Modes */
+        src: url('/wp-content/themes/scstatesman/_assets/public/fonts/montserrat-v15-latin-regular.eot'); /* IE9 Compat Modes */
         src: local(''),
-            url('/wp-content/themes/heartcount/_assets/public/fonts/montserrat-v15-latin-regular.eot?#iefix') format('embedded-opentype'),
-            url('/wp-content/themes/heartcount/_assets/public/fonts/montserrat-v15-latin-regular.woff2') format('woff2'),
-            url('/wp-content/themes/heartcount/_assets/public/fonts/montserrat-v15-latin-regular.woff') format('woff'),
-            url('/wp-content/themes/heartcount/_assets/public/fonts/montserrat-v15-latin-regular.ttf') format('truetype'),
-            url('/wp-content/themes/heartcount/_assets/public/fonts/montserrat-v15-latin-regular.svg#Montserrat') format('svg');
+            url('/wp-content/themes/scstatesman/_assets/public/fonts/montserrat-v15-latin-regular.eot?#iefix') format('embedded-opentype'),
+            url('/wp-content/themes/scstatesman/_assets/public/fonts/montserrat-v15-latin-regular.woff2') format('woff2'),
+            url('/wp-content/themes/scstatesman/_assets/public/fonts/montserrat-v15-latin-regular.woff') format('woff'),
+            url('/wp-content/themes/scstatesman/_assets/public/fonts/montserrat-v15-latin-regular.ttf') format('truetype'),
+            url('/wp-content/themes/scstatesman/_assets/public/fonts/montserrat-v15-latin-regular.svg#Montserrat') format('svg');
     }
 </style>
 ```

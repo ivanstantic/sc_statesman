@@ -36,7 +36,7 @@ function hc_enqueue_block_editor_assets($hook_suffix) {
 // Enqueue assets wrappers
 function hc_enqueue_admin_modules_style() {
     wp_enqueue_style(
-        'hc-admin-page-css',
+        'scs-admin-page-css',
         get_template_directory_uri() . '/_assets/public/css/admin/page.css',
         [],
         wp_get_theme()->get( 'Version' ),
@@ -46,7 +46,7 @@ function hc_enqueue_admin_modules_style() {
 
 function hc_enqueue_admin_prose_style() {
     wp_enqueue_style(
-        'hc-admin-post-css',
+        'scs-admin-post-css',
         get_template_directory_uri() . '/_assets/public/css/admin/prose.css',
         [],
         wp_get_theme()->get( 'Version' ),
@@ -56,14 +56,14 @@ function hc_enqueue_admin_prose_style() {
 
 function hc_enqueue_admin_script() {
     wp_enqueue_script(
-        'hc-admin-script',
+        'scs-admin-script',
         get_stylesheet_directory_uri() . '/_assets/public/js/admin/script.js',
         ['wp-edit-post', 'wp-data'],
         wp_get_theme()->get( 'Version' ),
         true
     );
 
-    wp_localize_script( 'hc-admin-script', 'acfDynamicData', array(
+    wp_localize_script( 'scs-admin-script', 'acfDynamicData', array(
         'ajax_url' => admin_url('admin-ajax.php'),
         'fields' => array(
             'categories' => 'get_categories_for_post_types',

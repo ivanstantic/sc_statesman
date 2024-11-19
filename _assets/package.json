@@ -1,7 +1,7 @@
 {
-  "name": "heartcount",
+  "name": "scstatesman",
   "version": "1.0.0",
-  "description": "HeartCount",
+  "description": "SC Statesman",
   "author": "Ivan Stantic",
   "scripts": {
     "lint": "eslint src/js",

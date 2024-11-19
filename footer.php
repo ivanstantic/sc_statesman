@@ -144,7 +144,7 @@ use Theme\Menus\Tailwind_Walker_Nav_Menu_Mobile;
                     class="max-h-[43px] object-contain"
                 />
                 </div>
-                <span class="w-2/4 text-end">© 2024 HeartCount</span>
+                <span class="w-2/4 text-end">© 2024 SC Statesman</span>
             </div>
         </footer>
     </div>

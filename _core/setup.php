@@ -1,6 +1,6 @@
 <?php
 
-if (! function_exists('hc_setup')) :
+if (! function_exists('scs_setup')) :
     /**
      * Sets up theme defaults and registers support for various WordPress features.
      *
@@ -8,9 +8,9 @@ if (! function_exists('hc_setup')) :
      * runs before the init hook. The init hook is too late for some features, such
      * as indicating support for post thumbnails.
      */
-    function hc_setup()
+    function scs_setup()
     {
-        load_theme_textdomain('hc', get_template_directory() . '/languages');
+        load_theme_textdomain('scs', get_template_directory() . '/languages');
 
         /**
          * Add default posts and comments RSS feed links to head.
