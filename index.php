@@ -17,9 +17,6 @@ use Theme\Template;
                 </header>
             <?php endif; ?>
 
-            <!-- Resources Navigation -->
-            <?php Template::include('template-parts/resources/_navigation.php'); ?>
-
             <!-- The Loop -->
             <div class="flex flex-wrap">
                 <?php if (have_posts()) : ?>

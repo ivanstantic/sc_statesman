@@ -108,4 +108,4 @@ if (! function_exists('scs_setup')) :
     }
 endif;
 
-add_action('after_setup_theme', 'hc_setup');
+add_action('after_setup_theme', 'scs_setup');

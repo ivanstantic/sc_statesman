@@ -1,6 +1,6 @@
 <?php
-use Theme\Menus\Tailwind_Walker_Nav_Menu_Desktop;
-use Theme\Menus\Tailwind_Walker_Nav_Menu_Mobile;
+// use Theme\Menus\Tailwind_Walker_Nav_Menu_Desktop;
+// use Theme\Menus\Tailwind_Walker_Nav_Menu_Mobile;
 ?>
     
     <?php wp_footer(); ?>
@@ -14,17 +14,17 @@ use Theme\Menus\Tailwind_Walker_Nav_Menu_Mobile;
                 </a>
                 <nav>
                     <?php
-                        wp_nav_menu(array(
-                            'theme_location'  => 'hc_footer_menu_1',
-                            // Tailwind classes for the <ul>
-                            'menu_class'      => 'flex flex-row gap-7 items-center mb-20 font-new-order font-bold tracking-widest text-hc-gray-dark uppercase',
-                            // Fallback callback
-                            'fallback_cb'     => function () {
+                        // wp_nav_menu(array(
+                        //     'theme_location'  => 'hc_footer_menu_1',
+                        //     // Tailwind classes for the <ul>
+                        //     'menu_class'      => 'flex flex-row gap-7 items-center mb-20 font-new-order font-bold tracking-widest text-hc-gray-dark uppercase',
+                        //     // Fallback callback
+                        //     'fallback_cb'     => function () {
                                 ?>
                                     <div>Assign a menu to the 1st Footer Menu display location</div>
                                 <?php
-                            },
-                        ));
+                        //     },
+                        // ));
                     ?>
                 </nav>
                 <nav>
@@ -57,18 +57,18 @@ use Theme\Menus\Tailwind_Walker_Nav_Menu_Mobile;
                 </nav>
                 <nav>
                     <?php
-                        wp_nav_menu(array(
-                            'theme_location'  => 'hc_footer_menu_2',
-                            'container_class' => 'footer-menu-2nd',
-                            // Tailwind classes for the <ul>
-                            'menu_class'      => 'mb-4 flex items-center text-sm font-plus-jakarta',
-                            // Fallback callback
-                            'fallback_cb'     => function () {
+                        // wp_nav_menu(array(
+                        //     'theme_location'  => 'hc_footer_menu_2',
+                        //     'container_class' => 'footer-menu-2nd',
+                        //     // Tailwind classes for the <ul>
+                        //     'menu_class'      => 'mb-4 flex items-center text-sm font-plus-jakarta',
+                        //     // Fallback callback
+                        //     'fallback_cb'     => function () {
                                 ?>
                                     <div>Assign a menu to the 1st Footer Menu display location</div>
                                 <?php
-                            },
-                        ));
+                        //     },
+                        // ));
                     ?>
                 </nav>
                 <p class="mb-12 text-sm font-plus-jakarta">© 2024 HeartCount</p>
@@ -77,19 +77,19 @@ use Theme\Menus\Tailwind_Walker_Nav_Menu_Mobile;
         <footer class="bg-white p-4 block sm:hidden">
             <nav class="mb-5">
                 <?php
-                    wp_nav_menu(array(
-                        'theme_location'  => 'hc_footer_menu_1',
-                        'walker'          => new Tailwind_Walker_Nav_Menu_Mobile(),
-                        'container_class' => 'footer-menu-1st-mobile',
-                        // Tailwind classes for the <ul>
-                        'menu_class'      => 'space-y-4',
-                        // Fallback callback
-                        'fallback_cb'     => function () {
+                    // wp_nav_menu(array(
+                    //     'theme_location'  => 'hc_footer_menu_1',
+                    //     'walker'          => new Tailwind_Walker_Nav_Menu_Mobile(),
+                    //     'container_class' => 'footer-menu-1st-mobile',
+                    //     // Tailwind classes for the <ul>
+                    //     'menu_class'      => 'space-y-4',
+                    //     // Fallback callback
+                    //     'fallback_cb'     => function () {
                             ?>
                                 <div>Assign a menu to the 1st Footer Menu display location</div>
                             <?php
-                        },
-                    ));
+                    //     },
+                    // ));
                 ?>
             </nav>
             <nav class="flex justify-center">
@@ -122,19 +122,19 @@ use Theme\Menus\Tailwind_Walker_Nav_Menu_Mobile;
             </nav>
             <nav class="flex justify-center">
                 <?php
-                    wp_nav_menu(array(
-                        'theme_location'  => 'hc_footer_menu_2',
-                        'walker'          => new Tailwind_Walker_Nav_Menu_Mobile(),
-                        'container_class' => 'footer-menu-2nd',
-                        // Tailwind classes for the <ul>
-                        'menu_class'      => 'mb-4 flex items-center text-sm font-plus-jakarta',
-                        // Fallback callback
-                        'fallback_cb'     => function () {
+                    // wp_nav_menu(array(
+                    //     'theme_location'  => 'hc_footer_menu_2',
+                    //     'walker'          => new Tailwind_Walker_Nav_Menu_Mobile(),
+                    //     'container_class' => 'footer-menu-2nd',
+                    //     // Tailwind classes for the <ul>
+                    //     'menu_class'      => 'mb-4 flex items-center text-sm font-plus-jakarta',
+                    //     // Fallback callback
+                    //     'fallback_cb'     => function () {
                             ?>
                                 <div>Assign a menu to the 1st Footer Menu display location</div>
                             <?php
-                        },
-                    ));
+                    //     },
+                    // ));
                 ?>
             </nav>
             <div class="mt-6 flex justify-between items-center w-full">
