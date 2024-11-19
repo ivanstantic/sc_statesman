@@ -1,0 +1,80 @@
+/* Hide the available view options */
+.editor-preview-dropdown {
+  display: none !important;
+}
+
+/* Prevent smaller featured images from being stretched inside Gutenberg */
+.editor-post-featured-image__preview .editor-post-featured-image__preview-image {
+  object-fit: contain; /* Ensure the image maintains its aspect ratio */
+  max-width: 100%;     /* Ensure it doesn’t overflow the container */
+  height: auto;        /* Keep the aspect ratio */
+  width: auto;         /* Prevent stretching */
+}
+
+/* Hide Custom Blocks From The Core Page Template */
+.is-core-page-template {
+  [class*="editor-block-list-item-hc"] {
+    display: none;
+  }
+
+  .block-editor-inserter__all-blocks {
+    .block-editor-inserter__panel-header:first-of-type,
+    .block-editor-inserter__panel-content:first-of-type {
+      display: none;
+    }
+  }
+}
+
+/* Gutenberg Post/Page Title */
+.editor-styles-wrapper {
+  .wp-block-post-title {
+    @apply mx-auto mb-5 max-w-[848px] p-2 text-3xl md:text-5xl font-plus-jakarta font-bold text-hc-gray-dark;
+  }
+}
+
+/* Gutenberg Right Sidebar */
+.interface-interface-skeleton__sidebar {
+  .interface-complementary-area__fill {
+    min-width: 320px !important;
+
+    .interface-complementary-area.editor-sidebar {
+      min-width: 320px !important;
+
+      .acf-field {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .acf-field-flexible-content {
+        .acf-field-repeater {
+          padding-left: 0;
+          padding-right: 0;
+
+          & > .acf-label {
+            padding-left: 16px;
+            padding-right: 16px;
+          }
+
+          .acf-input {
+            .acf-table {
+              border-left: 0;
+              border-right: 0;
+            }
+
+            .acf-actions {
+              padding-left: 16px;
+              padding-right: 16px;
+            }
+          }
+        }
+      }
+
+      .acf-repeater {
+        .acf-row-handle {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}

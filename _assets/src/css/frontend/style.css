@@ -1,0 +1,6 @@
+@import '_tailwind.css';
+@import '_fonts.css';
+@import '_base.css';
+
+@import 'modules/_prose.css';
+@import 'modules/_pagination.css';

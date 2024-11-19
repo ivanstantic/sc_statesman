@@ -1,0 +1,13 @@
+.pagination {
+  .prev {
+    @apply mr-2.5 font-semibold;
+  }
+
+  .page-numbers.current span {
+    @apply bg-[#f7f7f7] text-black;
+  }
+
+  .next {
+    @apply ml-2.5 font-semibold;
+  }
+}

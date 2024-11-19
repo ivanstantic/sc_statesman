@@ -1,0 +1,47 @@
+{
+  "name": "heartcount",
+  "version": "1.0.0",
+  "description": "HeartCount",
+  "author": "Ivan Stantic",
+  "scripts": {
+    "lint": "eslint src/js",
+    "stylelint": "stylelint src/css/*.css",
+    "watch": "mix watch",
+    "build:dev": "mix",
+    "build": "mix --production"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "browser-sync": "^3.0.2",
+    "copy-webpack-plugin": "^12.0.2",
+    "eslint": "^8.44.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-webpack-plugin": "^4.2.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-webp-webpack-plugin": "^3.3.6",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "laravel-mix": "^6.0.49",
+    "postcss": "^8.4.41",
+    "postcss-custom-media": "^11.0.1",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-import": "^16.1.0",
+    "postcss-nested": "^6.2.0",
+    "postcss-preset-env": "^10.0.2",
+    "stylelint": "^16.8.2",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-order": "^6.0.4",
+    "stylelint-webpack-plugin": "^5.0.1",
+    "tailwindcss": "^3.4.10"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "@tailwindcss/typography": "^0.5.14",
+    "flowbite": "^2.5.1",
+    "headroom.js": "^0.12.0",
+    "imagesloaded": "^5.0.0",
+    "lozad": "^1.16.0",
+    "masonry-layout": "^4.2.2"
+  }
+}

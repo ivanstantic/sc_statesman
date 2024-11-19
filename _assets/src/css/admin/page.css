@@ -1,0 +1,13 @@
+@import 'modules/_gutenberg.css';
+
+.editor-styles-wrapper {
+  max-width: none !important;
+}
+
+.is-root-container {
+  max-width: none !important;
+
+  & :where(.wp-block) {
+    max-width: none !important;
+  }
+}

@@ -1,0 +1,29 @@
+<?php
+
+add_action('wp_ajax_get_tags_for_post_types', 'ajax_get_tags_for_post_types');
+add_action('wp_ajax_nopriv_get_tags_for_post_types', 'ajax_get_tags_for_post_types');
+
+function ajax_get_tags_for_post_types() {
+    // Check if post types are provided
+    if (empty($_POST['post_types'])) {
+        wp_send_json_error('No post types provided or incorrect format.');
+        return;
+    }
+
+    // Decode and sanitize the post_types array
+    $post_types = json_decode(stripslashes($_POST['post_types']), true);
+
+    // Validate that post_types is an array
+    if (!is_array($post_types) || empty($post_types)) {
+        wp_send_json_error('Invalid format for post types.');
+        return;
+    }
+
+    // Sanitize and process the post types array
+    $post_types = array_map('sanitize_text_field', $post_types);
+    
+    // Get tags for post types
+    $tags_list = get_tags_for_post_types( $post_types );
+
+    wp_send_json_success( array('tags' => $tags_list) ); // Return tags if found
+}

@@ -1,0 +1,29 @@
+@import 'modules/_gutenberg.css';
+
+/* Gutenberg editor */
+.is-root-container {
+  @apply m-auto max-w-[848px] prose md:prose-xl font-plus-jakarta;
+
+  & :where(.wp-block) {
+    max-width: none;
+  }
+}
+
+.editor-post-title__block,
+.edit-post-visual-editor,
+.editor-styles-wrapper {
+  background-color: white;
+}
+
+/* ACF Metabox */
+#editor .postbox > .postbox-header .handle-actions {
+  .acf-hndle-cog {
+    display: none !important;
+  }
+
+  .handle-order-higher:focus,
+  .handle-order-lower:focus,
+  .handlediv:focus {
+    box-shadow: none;
+  }
+}
