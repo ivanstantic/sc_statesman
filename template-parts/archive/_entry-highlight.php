@@ -30,7 +30,7 @@ use Theme\Template;
                     class="py-3 px-5 rounded-full bg-[#121212] text-white font-new-order font-semibold tracking-widest md:px-0 md:bg-transparent md:text-black"
                 >
                     READ MORE
-                    <?php Template::include('template-parts/icons/arrow-right.php'); ?>
+                    <?php Template::include('template-parts/images/icons/arrow-right.php'); ?>
                 </a>
                 <p class="my-2">
                     <?php hc_the_reading_time(); ?> minute read

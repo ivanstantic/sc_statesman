@@ -40,7 +40,7 @@ use Theme\Template;
                 class="entry__read-more py-3 px-5 rounded-full font-new-order font-semibold tracking-widest <?php echo join(' ', [$cta_bg_color, $cta_text_color]); ?>"
             >
                 READ MORE
-                <?php Template::include('template-parts/icons/arrow-right.php'); ?>
+                <?php Template::include('template-parts/images/icons/arrow-right.php'); ?>
             </a>
             <!-- Reading time -->
             <p class="my-2">
