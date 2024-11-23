@@ -4,6 +4,8 @@ $locations = get_nav_menu_locations();
 $menu_location = 'scs_main_menu';
 $menu = array();
 if ( isset( $locations[ $menu_location ] ) ) :
+    global $wp;
+    $permalink = home_url( $wp->request );
     $menu_id = $locations[ $menu_location ];
     $menu_items = wp_get_nav_menu_items( $menu_id );
 
@@ -22,7 +24,7 @@ if ( isset( $locations[ $menu_location ] ) ) :
             $menu[ $id ]['link'] = $link;
 
             // add active field if current link and open url is same.
-            if ( get_permalink() === $link ) {
+            if ( trailingslashit( $permalink ) === trailingslashit( $link ) ) {
                 $menu[ $id ]['active'] = true;
             }
         } else {
@@ -34,7 +36,7 @@ if ( isset( $locations[ $menu_location ] ) ) :
                 $menu[ $menu_item_parent ]['children'][ $id ]['link'] = $link;
 
                 // add active field to current menu item and its parent menu item if current link and open url is same.
-                if ( get_permalink() === $link ) {
+                if ( trailingslashit( $permalink ) === trailingslashit( $link ) ) {
                     $menu[ $menu_item_parent ]['active'] = true;
                     $menu[ $menu_item_parent ]['children'][ $id ]['active'] = true;
                 }
@@ -80,16 +82,16 @@ endif;
 <body class="bg-gray-100 text-gray-900 w-full">
     <!-- Header -->
     <header class="flex items-center justify-center bg-[#1B3664] text-white">
-        <div class="container flex flex-wrap items-center justify-between py-4 md:py-8  max-w-[90%]">
+        <div class="container w-[90%] max-w-[1344px] flex flex-wrap items-center justify-between py-4 md:py-8">
             <!-- Logo -->
             <div class="flex-shrink-0">
-                <a href="#">
+                <a href="/">
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/logo.svg" alt="SC Statesman Logo" class="w-36 md:w-54 h-auto" />
                 </a>
             </div>
 
             <!-- Navigation Links -->
-            <nav class="hidden md:flex items-center space-x-4 lg:space-x-12 text-sm mt-4 md:mt-0">
+            <!-- <nav class="hidden md:flex items-center space-x-4 lg:space-x-12 text-sm mt-4 md:mt-0">
                 <?php
                     if ( isset( $locations[ $menu_location ] ) ) :
                         if ( ! empty( $menu ) ) :
@@ -109,7 +111,7 @@ endif;
                         echo 'No menu assigned to this theme location.';
                     endif;
                 ?>
-            </nav>
+            </nav> -->
 
             <!-- Actions: Subscribe, Search, Theme Toggle -->
             <div class="flex items-center space-x-4 md:mt-0">
@@ -192,7 +194,7 @@ endif;
 
     <!-- Sub Header -->
     <div class="w-full py-2 flex items-center justify-center bg-white dark:bg-black">
-        <div class="w-[90%]">
+        <div class="w-[90%] max-w-[1344px]">
             <!-- Navigation Bar -->
             <?php if ( ! empty( $menu ) ) : ?>
                 <nav class="py-1.5 flex items-center space-x-6 text-sm text-[#1B3664] dark:text-[#7898FF] font-medium ">

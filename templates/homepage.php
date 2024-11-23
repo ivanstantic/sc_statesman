@@ -6,7 +6,7 @@
 
     <!-- Hero Section -->
     <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
-        <div class="w-[90%]">
+        <div class="w-[90%] max-w-[1344px]">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-gray-300 py-[24px]">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/video-placeholder.png" class="w-full h-auto" alt="Video Placeholder" />
                 <div class="flex items-start justify-center flex-col text-black">
@@ -14,10 +14,12 @@
                     <h3 class="text-[24px] md:text-[48px] text-[#1B2228] mt-3 font-bold leading-[28px] md:leading-[52px] font-roboto-serif dark:text-white">
                         Governor Announces New Economic Plan
                     </h3>
-                    <p class="text-[14px] md:text-[16px] text-[#1B2228] mt-3 dark:text-white">
+                    <p class="text-[12px] md:text-[14px] text-[#71767A] mt-3">
+                        October 10, 2023
+                    </p>
+                    <p class="text-[16px] text-black dark:text-white mt-1">
                         Governor has announced a new economic plan for South Carolina, focusing on job creation, business incentives, and workforce development.
                     </p>
-                    <p class="text-[12px] md:text-[14px] text-[#71767A] mt-3">October 10, 2023</p>
                 </div>
             </div>
         </div>
@@ -26,7 +28,7 @@
 
     <!--State View More -->
     <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
-        <div class="w-[90%] flex justify-between items-center pt-[24px] pb-[16px]">
+        <div class="w-[90%] max-w-[1344px] flex justify-between items-center pt-[24px] pb-[16px]">
             <div class="text-[32px] font-bold">
                 <p class="dark:text-white text-[#1B2228]">State</p>
                 <hr class="w-[60%] border-none h-[6px] bg-[#2D5599]" />
@@ -39,11 +41,11 @@
 
     <!-- State Images Section -->
     <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
-        <div class="w-[90%] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 py-8">
+        <div class="w-[90%] max-w-[1344px] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 py-8">
             <div class="dark:bg-[#1B2228] overflow-hidden">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-9.png" alt="Card Image" class="w-full h-[220px] object-cover rounded" />
                 <div class="py-4">
-                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
+                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-roboto-serif">
                         Local Business Thrives Amid Economic Challenges
                     </h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -54,7 +56,7 @@
             <div class="dark:bg-[#1B2228] overflow-hidden">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-10.png" alt="Card Image" class="w-full h-[220px] object-cover rounded" />
                 <div class="py-4">
-                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
+                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-roboto-serif">
                         Health Officials Warn of Flu Season
                     </h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -65,7 +67,7 @@
             <div class="dark:bg-[#1B2228] overflow-hidden">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-11.png" alt="Card Image" class="w-full h-[220px] object-cover rounded" />
                 <div class="py-4">
-                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
+                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-roboto-serif">
                         High School Football Team Wins State Championship
                     </h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -76,7 +78,7 @@
             <div class="dark:bg-[#1B2228] overflow-hidden">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-4.png" alt="Card Image" class="w-full h-[220px] object-cover rounded" />
                 <div class="py-4">
-                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
+                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-roboto-serif">
                         Global Markets React to News
                     </h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -87,7 +89,7 @@
             <div class="dark:bg-[#1B2228] overflow-hidden">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-5.png" alt="Card Image" class="w-full h-[220px] object-cover rounded" />
                 <div class="py-4">
-                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
+                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-roboto-serif">
                         Exploring the Depths of the Ocean
                     </h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -98,7 +100,7 @@
             <div class="dark:bg-[#1B2228] overflow-hidden">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-6.png" alt="Card Image" class="w-full h-[220px] object-cover rounded" />
                 <div class="py-4">
-                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
+                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-roboto-serif">
                         Tech Giants Merge in Historic Deal
                     </h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -109,7 +111,7 @@
             <div class="dark:bg-[#1B2228] overflow-hidden">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-7.png" alt="Card Image" class="w-full h-[220px] object-cover rounded" />
                 <div class="py-4">
-                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
+                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-roboto-serif">
                         New Study on Mental Health
                     </h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -120,7 +122,7 @@
             <div class="dark:bg-[#1B2228] overflow-hidden">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-8.png" alt="Card Image" class="w-full h-[220px] object-cover rounded" />
                 <div class="py-4">
-                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
+                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-roboto-serif">
                         Election Results Announced
                     </h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -131,7 +133,7 @@
             <div class="dark:bg-[#1B2228] overflow-hidden">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-5.png" alt="Card Image" class="w-full h-[220px] object-cover rounded" />
                 <div class="py-4">
-                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
+                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-roboto-serif">
                         Exploring the Depths of the Ocean
                     </h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -142,7 +144,7 @@
             <div class="dark:bg-[#1B2228] overflow-hidden">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-6.png" alt="Card Image" class="w-full h-[220px] object-cover rounded" />
                 <div class="py-4">
-                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
+                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-roboto-serif">
                         Tech Giants Merge in Historic Deal
                     </h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -153,7 +155,7 @@
             <div class="dark:bg-[#1B2228] overflow-hidden">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-7.png" alt="Card Image" class="w-full h-[220px] object-cover rounded" />
                 <div class="py-4">
-                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
+                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-roboto-serif">
                         New Study on Mental Health
                     </h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -164,7 +166,7 @@
             <div class="dark:bg-[#1B2228] overflow-hidden">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-8.png" alt="Card Image" class="w-full h-[220px] object-cover rounded" />
                 <div class="py-4">
-                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
+                    <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-roboto-serif">
                         Election Results Announced
                     </h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -180,7 +182,7 @@
 
     <!-- Local view -->
     <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
-        <div class="w-[90%] flex justify-between items-center pt-[24px] pb-[16px]">
+        <div class="w-[90%] max-w-[1344px] flex justify-between items-center pt-[24px] pb-[16px]">
             <div class="text-[32px] font-bold">
                 <p class="dark:text-white text-[#1B2228]">Local</p>
                 <hr class="w-[60%] border-none h-[6px] bg-[#2D5599]" />
@@ -193,7 +195,7 @@
 
     <!-- Local grid -->
     <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
-        <div class="w-[90%]  flex items-start justify-between gap-10 pt-[16px] pb-[24px]">
+        <div class="w-[90%] max-w-[1344px] flex items-start justify-between gap-10 pt-[16px] pb-[24px]">
             <!-- Main Large Article -->
             <div class="lg:flex-5 w-[50%]">
                 <div class="overflow-hidden rounded-lg ">
@@ -285,7 +287,7 @@
     <!-- Record Card -->
     <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
         <div class="w-full bg-[#1B366447] flex justify-center items-center pt-6 pb-4">
-            <div class="w-[90%]">
+            <div class="w-[90%] max-w-[1344px]">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-gray-300 py-6 relative">
                     <!-- Left Section (Image) -->
                     <div class="flex items-center justify-center md:justify-start">
@@ -325,7 +327,7 @@
 
     <!-- National View More -->
     <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
-        <div class="w-[90%] flex justify-between items-center pt-[24px] pb-[16px]">
+        <div class="w-[90%] max-w-[1344px] flex justify-between items-center pt-[24px] pb-[16px]">
             <div class="text-[32px] font-bold">
                 <p class="dark:text-white text-[#1B2228]">National</p>
                 <hr class="w-[60%] border-none h-[6px] bg-[#2D5599]" />
@@ -338,7 +340,7 @@
 
     <!-- National Images Section -->
     <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
-        <div class="w-[90%] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 py-8">
+        <div class="w-[90%] max-w-[1344px] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 py-8">
             <div class="dark:bg-[#1B2228] overflow-hidden">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-1.png" alt="Card Image" class="w-full h-[220px] object-cover rounded" />
                 <div class="py-4">
@@ -479,7 +481,7 @@
 
     <!-- Investigations view more -->
     <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
-        <div class="w-[90%] flex justify-between items-center pt-[24px] pb-[16px]">
+        <div class="w-[90%] max-w-[1344px] flex justify-between items-center pt-[24px] pb-[16px]">
             <div class="text-[32px] font-bold">
                 <p class="dark:text-white text-[#1B2228]">Investigations</p>
                 <hr class="w-[60%] border-none h-[6px] bg-[#2D5599]" />
@@ -492,7 +494,7 @@
 
     <!-- Investigations grid -->
     <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
-        <div class="w-[90%]  flex items-start justify-between gap-10 pt-[16px] pb-[24px]">
+        <div class="w-[90%] max-w-[1344px] flex items-start justify-between gap-10 pt-[16px] pb-[24px]">
             <!-- Main Large Article -->
             <div class="lg:flex-5 w-[50%]">
                 <div class="overflow-hidden rounded-lg ">
@@ -586,7 +588,7 @@
 
     <!-- Videos View More -->
     <div class="w-full flex flex-col items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
-        <div class="w-[90%]">
+        <div class="w-[90%] max-w-[1344px]">
             <div class="w-[100%] flex flex-wrap justify-between items-center pt-[24px]">
                 <div class="w-full md:w-[60%] text-center md:text-end text-[24px] md:text-[32px] font-bold md:mb-0">
                     <p class="dark:text-white text-[#1B2228]">Videos and Podcasts</p>
@@ -604,7 +606,7 @@
 
     <!-- Videos Grid  -->
     <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
-        <div class="w-[90%]  flex items-start justify-between gap-10 pt-[16px] pb-[24px]">
+        <div class="w-[90%] max-w-[1344px] flex items-start justify-between gap-10 pt-[16px] pb-[24px]">
             <!-- Main Large Article -->
             <div class="lg:flex-5 w-[50%]">
                 <div class="overflow-hidden rounded-lg ">
@@ -668,27 +670,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-
-    <hr class="border-none h-[1px] bg-[#cbd5e1]" />
-
-    <!-- seacrh -->
-    <div class="w-full pb-[76px] pt-[96px] flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
-        <div class="w-[90%] md:w-[60%] text-center">
-            <h2 class="text-xl md:text-2xl font-bold text-[#1B2228] font-roboto-serif dark:text-white mb-4">
-                Stay Informed
-            </h2>
-            <p class="text-gray-700 dark:text-gray-400 mb-6 text-sm md:text-base">
-                Subscribe to our newsletter for the latest updates.
-            </p>
-            <form class="flex flex-col md:flex-row items-center justify-center gap-4">
-                <input type="email" placeholder="Email address" class="bg-white text-gray-900 dark:bg-black dark:text-gray-200 py-3 px-4 rounded-lg w-full md:w-[60%] focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                <button type="submit" class="bg-[#4864C0] hover:bg-[#3d579e] text-white py-3 px-8 rounded-lg font-medium w-full md:w-auto">
-                    Subscribe
-                </button>
-            </form>
         </div>
     </div>
 

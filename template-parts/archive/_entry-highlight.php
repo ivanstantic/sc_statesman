@@ -1,42 +1,26 @@
-<?php
-use Theme\Template;
-?>
 
-<article class="w-full mb-12 rounded-3xl overflow-hidden md:flex md:p-3.5 md:mb-16 md:rounded-none">
-
-    <!-- Thumbnail -->
-    <div class="md:w-1/2">
-        <?php the_post_thumbnail('thumbnail_landscape_cropped'); ?>
-    </div>
-
-    <!-- Meta -->
-    <div class="p-7 bg-hc-gray-light md:w-1/2 md:flex md:justify-end md:p-0 md:bg-transparent">
-        <div class="md:w-11/12">
-            <div class="flex justify-between items-center">
-                <p><?php the_date('j F Y'); ?></p>
-                <p>by <a href="<?php echo hc_get_author_url(); ?>" class="underline"><?php the_author(); ?></a></p>
+<div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
+    <div class="w-[90%] max-w-[1344px]">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-gray-300 py-[24px]">
+            <div class="flex justify-center">
+                <?php the_post_thumbnail('thumbnail_hero_cropped'); ?>
             </div>
-            <h3 class="font-new-order font-bold text-3xl pt-6 pb-4 lg:text-5xl lg:leading-[1.15]">
-                <a href="<?php echo esc_url( get_permalink() ); ?>">
+            <div class="flex items-start justify-center flex-col text-black">
+                <?php if ( isset( $category ) ) : ?>
+                    <p class="text-[14px] text-[#4864C0]">
+                        <?php echo $category; ?>
+                    </p>
+                <?php endif; ?>
+                <h3 class="text-[24px] md:text-[48px] text-[#1B2228] mt-3 font-bold leading-[28px] md:leading-[52px] font-roboto-serif dark:text-white">
                     <?php the_title(); ?>
-                </a>
-            </h3>
-            <p class="pb-7 font-plus-jakarta">
-                <?php hc_the_excerpt_with_char_limit(250); ?>
-            </p>
-            <div class="flex flex-wrap justify-between items-center">
-                <a
-                    href="<?php echo esc_url( get_permalink() ); ?>"
-                    class="py-3 px-5 rounded-full bg-[#121212] text-white font-new-order font-semibold tracking-widest md:px-0 md:bg-transparent md:text-black"
-                >
-                    READ MORE
-                    <?php Template::include('template-parts/images/icons/arrow-right.php'); ?>
-                </a>
-                <p class="my-2">
-                    <?php hc_the_reading_time(); ?> minute read
+                </h3>
+                <p class="text-[12px] md:text-[14px] text-[#71767A] mt-3">
+                    <?php echo get_the_date('F j, Y'); ?>
+                </p>
+                <p class="text-[16px] text-black dark:text-white mt-1">
+                    <?php scs_the_excerpt_with_char_limit(250); ?>
                 </p>
             </div>
         </div>
     </div>
-
-</article>
+</div>

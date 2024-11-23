@@ -1,7 +1,27 @@
 
+    <hr class="border-none h-[1px] bg-[#cbd5e1]" />
+
+    <!-- seacrh -->
+    <div class="w-full pb-[76px] pt-[96px] flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
+        <div class="w-[90%] max-w-[1344px] md:w-[60%] text-center">
+            <h2 class="text-xl md:text-2xl font-bold text-[#1B2228] font-roboto-serif dark:text-white mb-4">
+                Stay Informed
+            </h2>
+            <p class="text-gray-700 dark:text-gray-400 mb-6 text-sm md:text-base">
+                Subscribe to our newsletter for the latest updates.
+            </p>
+            <form class="flex flex-col md:flex-row items-center justify-center gap-4">
+                <input type="email" placeholder="Email address" class="bg-white text-gray-900 dark:bg-black dark:text-gray-200 py-3 px-4 rounded-lg w-full md:w-[60%] focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <button type="submit" class="bg-[#4864C0] hover:bg-[#3d579e] text-white py-3 px-8 rounded-lg font-medium w-full md:w-auto">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="flex items-center justify-center bg-[#1B3664] text-white">
-        <div class="container pt-[48px] pb-[88px] max-w-[90%]">
+        <div class="container w-[90%] max-w-[1344px] pt-[48px] pb-[88px]">
             <div class="grid grid-cols-1 md:grid-cols-5 gap-6 text-center md:text-left">
                 <!-- Logo Section -->
                 <div class="flex flex-col items-center md:items-start">

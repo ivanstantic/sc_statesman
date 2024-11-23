@@ -6,8 +6,8 @@
  * @param $size
  * @param $attr
  */
-if (!function_exists('hc_the_post_thumbnail')) {
-    function hc_the_post_thumbnail($post_id, $size, $attr)
+if (!function_exists('scs_the_post_thumbnail')) {
+    function scs_the_post_thumbnail($post_id, $size, $attr)
     {
         $thumbnail_id = get_post_meta( $post_id, '_thumbnail_id', true );
         if ( $thumbnail_id ) {
@@ -23,8 +23,8 @@ if (!function_exists('hc_the_post_thumbnail')) {
 /**
  * Get post date in time ago format
  */
-if (!function_exists('hc_the_time_ago')) {
-    function hc_the_time_ago()
+if (!function_exists('scs_the_time_ago')) {
+    function scs_the_time_ago()
     {
         echo human_time_diff(get_the_time('U'), current_time('timestamp'));
     }
@@ -33,8 +33,8 @@ if (!function_exists('hc_the_time_ago')) {
 /**
  * Get the author url within the loop
  */
-if (!function_exists('hc_get_author_url')) {
-    function hc_get_author_url() {
+if (!function_exists('scs_get_author_url')) {
+    function scs_get_author_url() {
         // Get the author's display name
         $author_name = get_the_author();
 
@@ -51,8 +51,8 @@ if (!function_exists('hc_get_author_url')) {
  * @param $post
  * @param $length
  */
-if (!function_exists('hc_get_excerpt_with_char_limit')) {
-    function hc_get_excerpt_with_char_limit($post, $length = 150) {
+if (!function_exists('scs_get_excerpt_with_char_limit')) {
+    function scs_get_excerpt_with_char_limit($post, $length = 150) {
         // Get the post content or excerpt
         $excerpt = $post->post_excerpt ? $post->post_excerpt : $post->post_content;
         
@@ -72,10 +72,10 @@ if (!function_exists('hc_get_excerpt_with_char_limit')) {
  * Print the excerpt with character limit
  * @param $length
  */
-if (!function_exists('hc_the_excerpt_with_char_limit')) {
-    function hc_the_excerpt_with_char_limit($length = 150) {
+if (!function_exists('scs_the_excerpt_with_char_limit')) {
+    function scs_the_excerpt_with_char_limit($length = 150) {
         global $post;
-        echo hc_get_excerpt_with_char_limit($post, $length);
+        echo scs_get_excerpt_with_char_limit($post, $length);
     }
 }
 
@@ -84,8 +84,8 @@ if (!function_exists('hc_the_excerpt_with_char_limit')) {
  * @param $post
  * @param $limit
  */
-if (!function_exists('hc_get_excerpt_with_word_limit')) {
-    function hc_get_excerpt_with_word_limit($post , $limit)
+if (!function_exists('scs_get_excerpt_with_word_limit')) {
+    function scs_get_excerpt_with_word_limit($post , $limit)
     {
         // Get the post content or excerpt
         $excerpt = $post->post_excerpt ? $post->post_excerpt : $post->post_content;
@@ -108,11 +108,11 @@ if (!function_exists('hc_get_excerpt_with_word_limit')) {
  * Print the excerpt with word limit
  * @param $limit
  */
-if (!function_exists('hc_the_excerpt_with_word_limit')) {
-    function hc_the_excerpt_with_word_limit($limit)
+if (!function_exists('scs_the_excerpt_with_word_limit')) {
+    function scs_the_excerpt_with_word_limit($limit)
     {
         global $post;
-        echo hc_get_excerpt_with_word_limit($post, $limit);
+        echo scs_get_excerpt_with_word_limit($post, $limit);
     }
 }
 
@@ -120,8 +120,8 @@ if (!function_exists('hc_the_excerpt_with_word_limit')) {
  * Get the reading time from post content
  * @param $content
  */
-if (!function_exists('hc_get_reading_time')) {
-    function hc_get_reading_time($content) {
+if (!function_exists('scs_get_reading_time')) {
+    function scs_get_reading_time($content) {
         // Calculate the word count
         $word_count = str_word_count(strip_tags($content));
 
@@ -133,12 +133,12 @@ if (!function_exists('hc_get_reading_time')) {
 /**
  * Print the reading time within the loop
  */
-if (!function_exists('hc_the_reading_time')) {
-    function hc_the_reading_time() {
+if (!function_exists('scs_the_reading_time')) {
+    function scs_the_reading_time() {
         // Get the post content directly within the loop
         $content = get_the_content();
 
         // Echo reading time
-        echo hc_get_reading_time($content);
+        echo scs_get_reading_time($content);
     }
 }
