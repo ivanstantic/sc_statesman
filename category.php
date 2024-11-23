@@ -1,47 +1,45 @@
 <?php
 use Theme\Template;
+
+if ( have_posts() ) {
+    $the_loop_posts = array();
+    while ( have_posts() ) {
+        the_post();
+        $the_loop_posts[] = $post;
+    }
+    rewind_posts();
+}
+
+$post_highlight = $the_loop_posts[0];
+$post_grid = array_slice( $the_loop_posts, 1, 8 );
+$post_archive = array_slice( $the_loop_posts, 9, 10 );
 ?>
 
 <?php get_header(); ?>
 
-    <?php
-        if ( have_posts() ) :
-            $counter = 0;
-            $grid_container = false;
+    <?php if ( have_posts() ) : ?>
 
-            while ( have_posts() ) : the_post();
-                $counter++;
+        <?php setup_postdata( $post_highlight ); ?>
+            <?php Template::include('template-parts/archive/_entry-highlight.php'); ?>
+        <?php wp_reset_postdata(); ?>
 
-                if ( $counter == 1 ) :
-                    Template::include('template-parts/archive/_entry-highlight.php');
-                else :
-                    if ( $grid_container === false ) :
-                        $grid_container = true;
-                    ?>
-                        <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
-                            <div class="w-[90%] max-w-[1344px] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 py-8">
-                    <?php
-                    endif;
-                    ?>
-                                <div>
-                                    <?php Template::include('template-parts/archive/_entry.php'); ?>
-                                </div>
-                    <?php
-                endif;
-            endwhile;
-            if ( $grid_container === true  ) :
-                
-                    ?>
-                            </div>
+        <?php if ( ! empty( $post_grid ) ) : ?>
+            <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
+                <div class="w-[90%] max-w-[1344px] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 py-8">
+                    <?php foreach ( $post_grid as $post ) : ?>
+                        <?php setup_postdata( $post ); ?>
+                        <div>
+                            <?php Template::include('template-parts/archive/_entry-grid.php'); ?>
                         </div>
-                    <?php
-            endif;
-        else :
-            ?>
-                <p class="md:p-3.5">Sorry, no posts matched your criteria.</p>
-            <?php
-        endif;
-    ?>
+                        <?php wp_reset_postdata(); ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        <?php endif; ?>
+
+    <?php else : ?>
+        <p class="md:p-3.5">Sorry, no posts matched your criteria.</p>
+    <?php endif; ?>
 
     <!-- Read More Header -->
     <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
@@ -132,9 +130,10 @@ use Theme\Template;
             </div>
         </div>
     </div>
+
     <hr class="border-none h-[1px] bg-[#cbd5e1]" />
 
-    <!-- Trending Archive Header -->
+    <!-- Archive Header -->
     <div class="w-full flex flex-col items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
         <div class="w-[90%] md:w-[80%] lg:w-[70%] pb-[24px]">
             <div class="w-full flex flex-col items-start justify-start bg-[#f2f3f4] dark:bg-[#1B2228]">
@@ -148,223 +147,71 @@ use Theme\Template;
         </div>
     </div>
 
-    <!-- Trending Archive Grid -->
-    <div class="w-full flex flex-col items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
-        <div class="w-[90%] md:w-[90%] lg:w-[70%]">
-            <div class="grid grid-cols-1 gap-8">
-                <!-- Card 1 -->
-                <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12 justify-between">
-                    <div class="w-full md:w-[30%]">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-1.png" alt="Image 1" class="w-full h-48 object-cover rounded" />
-                    </div>
-                    <div class="p-4 w-full md:w-[70%]">
-                        <h2 class="text-[24px] md:text-[32px] font-medium text-black dark:text-white font-roboto-serif">
-                            Exploring the Depths of the Ocean
-                        </h2>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                            October 10, 2024
-                        </p>
-                        <p class="text-gray-700 dark:text-gray-300 mt-4">
-                            An in-depth look at the ongoing recovery efforts in North Carolina following Hurricane Florence.
-                        </p>
-                    </div>
+    <!-- Archive Grid -->
+    <?php if ( ! empty( $post_archive ) ) : ?>
+        <div class="w-full flex flex-col items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
+            <div class="w-[90%] md:w-[90%] lg:w-[70%]">
+                <div class="grid grid-cols-1 gap-8">
+                    <?php foreach ( $post_archive as $post ) : ?>
+                        <?php setup_postdata( $post ); ?>
+                        <div>
+                            <?php Template::include('template-parts/archive/_entry-archive.php'); ?>
+                        </div>
+                        <?php wp_reset_postdata(); ?>
+                    <?php endforeach; ?>
                 </div>
-                <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12 justify-between">
-                    <div class="w-full md:w-[30%]">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-2.png" alt="Image 1" class="w-full h-48 object-cover rounded" />
-                    </div>
-                    <div class="p-4 w-full md:w-[70%]">
-                        <h2 class="text-[24px] md:text-[32px] font-medium text-black dark:text-white font-roboto-serif">
-                            Innovative Tech Startups to Watch
-                        </h2>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                            October 10, 2024
-                        </p>
-                        <p class="text-gray-700 dark:text-gray-300 mt-4">
-                            Governor has announced a new economic plan for South Carolina, focusing on job creation, business incentives, and workforce development.
-                        </p>
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12 justify-between">
-                    <div class="w-full md:w-[30%]">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-3.png" alt="Image 1" class="w-full h-48 object-cover rounded" />
-                    </div>
-                    <div class="p-4 w-full md:w-[70%]">
-                        <h2 class="text-[24px] md:text-[32px] font-medium text-black dark:text-white font-roboto-serif">
-                            Breakthrough in Quantum Computing
-                        </h2>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                            October 10, 2024
-                        </p>
-                        <p class="text-gray-700 dark:text-gray-300 mt-4">
-                            An in-depth look at the ongoing recovery efforts in North Carolina following Hurricane Florence.
-                        </p>
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12 justify-between">
-                    <div class="w-full md:w-[30%]">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-4.png" alt="Image 1" class="w-full h-48 object-cover rounded" />
-                    </div>
-                    <div class="p-4 w-full md:w-[70%]">
-                        <h2 class="text-[24px] md:text-[32px] font-medium text-black dark:text-white font-roboto-serif">
-                            Olympic Games Highlights
-                        </h2>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                            October 10, 2024
-                        </p>
-                        <p class="text-gray-700 dark:text-gray-300 mt-4">
-                            Governor has announced a new economic plan for South Carolina, focusing on job creation, business incentives, and workforce development.
-                        </p>
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12 justify-between">
-                    <div class="w-full md:w-[30%]">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-5.png" alt="Image 1" class="w-full h-48 object-cover rounded" />
-                    </div>
-                    <div class="p-4 w-full md:w-[70%]">
-                        <h2 class="text-[24px] md:text-[32px] font-medium text-black dark:text-white font-roboto-serif">
-                            Global Markets React to News
-                        </h2>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                            October 10, 2024
-                        </p>
-                        <p class="text-gray-700 dark:text-gray-300 mt-4">
-                            An in-depth look at the ongoing recovery efforts in North Carolina following Hurricane Florence.
-                        </p>
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12 justify-between">
-                    <div class="w-full md:w-[30%]">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-1.png" alt="Image 1" class="w-full h-48 object-cover rounded" />
-                    </div>
-                    <div class="p-4 w-full md:w-[70%]">
-                        <h2 class="text-[24px] md:text-[32px] font-medium text-black dark:text-white font-roboto-serif">
-                            Exploring the Depths of the Ocean
-                        </h2>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                            October 10, 2024
-                        </p>
-                        <p class="text-gray-700 dark:text-gray-300 mt-4">
-                            An in-depth look at the ongoing recovery efforts in North Carolina following Hurricane Florence.
-                        </p>
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12 justify-between">
-                    <div class="w-full md:w-[30%]">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-2.png" alt="Image 1" class="w-full h-48 object-cover rounded" />
-                    </div>
-                    <div class="p-4 w-full md:w-[70%]">
-                        <h2 class="text-[24px] md:text-[32px] font-medium text-black dark:text-white font-roboto-serif">
-                            Innovative Tech Startups to Watch
-                        </h2>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                            October 10, 2024
-                        </p>
-                        <p class="text-gray-700 dark:text-gray-300 mt-4">
-                            Governor has announced a new economic plan for South Carolina, focusing on job creation, business incentives, and workforce development.
-                        </p>
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12 justify-between">
-                    <div class="w-full md:w-[30%]">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-3.png" alt="Image 1" class="w-full h-48 object-cover rounded" />
-                    </div>
-                    <div class="p-4 w-full md:w-[70%]">
-                        <h2 class="text-[24px] md:text-[32px] font-medium text-black dark:text-white font-roboto-serif">
-                            Breakthrough in Quantum Computing
-                        </h2>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                            October 10, 2024
-                        </p>
-                        <p class="text-gray-700 dark:text-gray-300 mt-4">
-                            An in-depth look at the ongoing recovery efforts in North Carolina following Hurricane Florence.
-                        </p>
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12 justify-between">
-                    <div class="w-full md:w-[30%]">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-4.png" alt="Image 1" class="w-full h-48 object-cover rounded" />
-                    </div>
-                    <div class="p-4 w-full md:w-[70%]">
-                        <h2 class="text-[24px] md:text-[32px] font-medium text-black dark:text-white font-roboto-serif">
-                            Olympic Games Highlights
-                        </h2>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                            October 10, 2024
-                        </p>
-                        <p class="text-gray-700 dark:text-gray-300 mt-4">
-                            Governor has announced a new economic plan for South Carolina, focusing on job creation, business incentives, and workforce development.
-                        </p>
-                    </div>
-                </div>
-                <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12 justify-between">
-                    <div class="w-full md:w-[30%]">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-5.png" alt="Image 1" class="w-full h-48 object-cover rounded" />
-                    </div>
-                    <div class="p-4 w-full md:w-[70%]">
-                        <h2 class="text-[24px] md:text-[32px] font-medium text-black dark:text-white font-roboto-serif">
-                            Global Markets React to News
-                        </h2>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                            October 10, 2024
-                        </p>
-                        <p class="text-gray-700 dark:text-gray-300 mt-4">
-                            An in-depth look at the ongoing recovery efforts in North Carolina following Hurricane Florence.
-                        </p>
-                    </div>
+
+                <?php Template::include('template-parts/_pagination.php'); ?>
+
+                <!-- Pagination -->
+                <div class="flex flex-wrap  flex-col sm:flex-row items-center lg:justify-start justify-center mt-8 mb-8 space-y-4 sm:space-y-0 " >
+                    <span class="text-[#1B2228] dark:text-white md:mr-4 mr-0 md:mb-0 mb-4">Page 10 of 347</span>
+                    <nav class="flex flex-wrap justify-center sm:justify-start space-x-2">
+                        <!-- First Button -->
+                        <button class="px-3 sm:mb-0 mb-2 py-2 bg-gray-200 dark:bg-[#1B2228]  text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
+                    First
+                    </button>
+                        <!-- Previous Button -->
+                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
+                    &larr;
+                    </button>
+                        <!-- Ellipsis -->
+                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
+                    ...
+                    </button>
+                        <!-- Page Numbers -->
+                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
+                    8
+                    </button>
+                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-300 dark:bg-gray-600 text-gray-900 dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
+                    10
+                    </button>
+                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
+                    11
+                    </button>
+                        <!-- Ellipsis -->
+                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
+                    ...
+                    </button>
+                        <!-- Last Page Buttons -->
+                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
+                    20
+                    </button>
+                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
+                    30
+                    </button>
+                        <!-- Next Button -->
+                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
+                    &rarr;
+                    </button>
+                        <!-- Last Button -->
+                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
+                    Last
+                    </button>
+                    </nav>
                 </div>
             </div>
-
-            <!-- Pagination -->
-            <div class="flex flex-wrap  flex-col sm:flex-row items-center lg:justify-start justify-center mt-8 mb-8 space-y-4 sm:space-y-0 " >
-                <span class="text-[#1B2228] dark:text-white md:mr-4 mr-0 md:mb-0 mb-4">Page 10 of 347</span>
-                <nav class="flex flex-wrap justify-center sm:justify-start space-x-2">
-                    <!-- First Button -->
-                    <button class="px-3 sm:mb-0 mb-2 py-2 bg-gray-200 dark:bg-[#1B2228]  text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                  First
-                </button>
-                    <!-- Previous Button -->
-                    <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                  &larr;
-                </button>
-                    <!-- Ellipsis -->
-                    <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                  ...
-                </button>
-                    <!-- Page Numbers -->
-                    <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                  8
-                </button>
-                    <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-300 dark:bg-gray-600 text-gray-900 dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                  10
-                </button>
-                    <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                  11
-                </button>
-                    <!-- Ellipsis -->
-                    <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                  ...
-                </button>
-                    <!-- Last Page Buttons -->
-                    <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                  20
-                </button>
-                    <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                  30
-                </button>
-                    <!-- Next Button -->
-                    <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                  &rarr;
-                </button>
-                    <!-- Last Button -->
-                    <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                  Last
-                </button>
-                </nav>
-            </div>
-
-
         </div>
-    </div>
+    <?php endif; ?>
 
 <?php get_footer(); ?>

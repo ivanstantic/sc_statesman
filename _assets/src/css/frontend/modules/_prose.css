@@ -1,5 +1,5 @@
 .prose :is(h1, h2, h3, h4, h5, h6) {
-  @apply font-inter font-semibold;
+  @apply font-semibold;
   color: #121212;
 }
 
@@ -21,8 +21,4 @@
 
 .prose strong {
   color: #121212;
-}
-
-.prose-block :is(h1, h2, h3, h4, h5, h6) {
-  @apply font-new-order;
 }

@@ -65,7 +65,8 @@
                         <li><a href="#" class="hover:text-gray-300">LinkedIn</a></li>
                     </ul>
                 </div>
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/Tree.png" alt="SC Statesman Logo" class="absolute h-auto 2xl:right-[20rem] xl:right-[15rem] lg:right-[8rem] md:right-[8rem] sm:right-[2rem]" />
+
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/Tree.png" alt="SC Statesman Logo" class="absolute max-w-[258px] h-auto 2xl:right-[20rem] xl:right-[15rem] lg:right-[8rem] md:right-[8rem] sm:right-[2rem]" />
 
                 <!-- Social Icons Section -->
                 <div class="flex justify-center md:justify-end space-x-4">
@@ -82,6 +83,8 @@
             </div>
         </div>
     </footer>
+
+    <?php wp_footer(); ?>
 
     <script>
         const themeToggle = document.getElementById("theme-toggle");

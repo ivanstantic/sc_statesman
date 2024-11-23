@@ -58,8 +58,8 @@ endif;
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Serif:wght@400;500;700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -71,12 +71,14 @@ endif;
                 },
             },
         };
-    </script>
+    </script> -->
     <style>
         body {
             font-family: "Public Sans", sans-serif;
         }
     </style>
+
+    <?php wp_head(); ?>
 </head>
 
 <body class="bg-gray-100 text-gray-900 w-full">

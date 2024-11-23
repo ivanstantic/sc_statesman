@@ -20,10 +20,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'new-order': ['new-order', 'sans-serif'],
-        'plus-jakarta': ['Plus Jakarta Sans', 'sans-serif'],
-        // eslint-disable-next-line quote-props
-        'inter': ['Inter', 'sans-serif'],
+        fontFamily: {
+          'roboto': ["Roboto", "sans-serif"], // For Roboto
+          'roboto-serif': ["Roboto Serif", "serif"], // For Roboto Serif
+      },
       },
       colors: {
         'hc-gray-dark': '#212121',

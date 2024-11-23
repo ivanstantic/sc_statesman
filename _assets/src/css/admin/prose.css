@@ -2,7 +2,7 @@
 
 /* Gutenberg editor */
 .is-root-container {
-  @apply m-auto max-w-[848px] prose md:prose-xl font-plus-jakarta;
+  @apply m-auto max-w-[848px] prose md:prose-xl;
 
   & :where(.wp-block) {
     max-width: none;
