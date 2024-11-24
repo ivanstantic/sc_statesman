@@ -183,45 +183,6 @@ use Theme\Template;
         <?php endwhile; ?>
 
         <?php wp_reset_postdata(); ?>
-        <!-- <div class="dark:bg-[#1B2228] overflow-hidden">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-9.png" alt="Card Image"
-                class="w-full h-[220px] object-cover rounded" />
-            <div class="py-4">
-                <h3
-                    class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
-                    Local Business Thrives Amid Economic Challenges
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    October 9, 2023
-                </p>
-            </div>
-        </div>
-        <div class="dark:bg-[#1B2228] overflow-hidden">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-10.png" alt="Card Image"
-                class="w-full h-[220px] object-cover rounded" />
-            <div class="py-4">
-                <h3
-                    class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
-                    Health Officials Warn of Flu Season
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    October 8, 2023
-                </p>
-            </div>
-        </div>
-        <div class="dark:bg-[#1B2228] overflow-hidden">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-11.png" alt="Card Image"
-                class="w-full h-[220px] object-cover rounded" />
-            <div class="py-4">
-                <h3
-                    class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
-                    High School Football Team Wins State Championship
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    October 8, 2023
-                </p>
-            </div>
-        </div> -->
 
     </div>
 </div>
