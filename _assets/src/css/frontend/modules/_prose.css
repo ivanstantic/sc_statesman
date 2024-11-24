@@ -16,7 +16,7 @@
 }
 
 .prose p {
-  @apply text-hc-gray leading-8;
+  @apply leading-8;
 }
 
 .prose strong {

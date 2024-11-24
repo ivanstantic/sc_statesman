@@ -3,8 +3,8 @@
     <div class="w-[90%] max-w-[1344px]">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-gray-300 py-[24px]">
             <div class="flex justify-center">
-                <a href="<?php echo esc_url( get_permalink() ); ?>">
-                    <?php the_post_thumbnail('thumbnail_hero_cropped'); ?>
+                <a href="<?php echo esc_url( get_permalink() ); ?>" class="block aspect-video">            
+                    <?php the_post_thumbnail('thumbnail_hero_cropped', [ 'class' => 'w-full h-full object-cover' ]); ?>
                 </a>
             </div>
             <div class="flex items-start justify-center flex-col text-black">
@@ -14,7 +14,7 @@
                     </p>
                 <?php endif; ?>
                 <h3 class="text-[24px] md:text-[48px] text-[#1B2228] mt-3 font-bold leading-[28px] md:leading-[52px] font-roboto-serif dark:text-white">
-                    <a href="<?php echo esc_url( get_permalink() ); ?>">
+                    <a href="<?php echo esc_url( get_permalink() ); ?>" class="hover:underline">
                         <?php the_title(); ?>
                     </a>
                 </h3>

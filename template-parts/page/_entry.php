@@ -3,7 +3,7 @@
     <header class="mx-auto max-w-[848px] mb-1.5">
 
         <!-- Title -->
-        <h1 class="mb-5 text-3xl md:text-5xl font-bold text-hc-gray-dark">
+        <h1 class="mb-5 text-3xl md:text-5xl font-bold">
             <?php the_title(); ?>
         </h1>
 

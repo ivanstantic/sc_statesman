@@ -1,6 +1,7 @@
 <?php
 use Theme\Template;
 
+// The loop posts
 if ( have_posts() ) {
     $the_loop_posts = array();
     while ( have_posts() ) {
@@ -13,9 +14,36 @@ if ( have_posts() ) {
 $post_highlight = $the_loop_posts[0];
 $post_grid = array_slice( $the_loop_posts, 1, 8 );
 $post_archive = array_slice( $the_loop_posts, 9, 10 );
+
+// Most read custom query
+$category_id = get_queried_object_id();
+
+$args = array(
+    'posts_per_page' => 10,
+    'orderby'        => 'rand',
+    'post_status'    => 'publish',
+    'cat'            => $category_id,
+);
+
+$most_read_posts_query = new WP_Query( $args );
 ?>
 
 <?php get_header(); ?>
+
+    <header class="w-full flex justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
+        <div class="w-[90%] max-w-[1344px]">
+            <div class="w-[100%] flex flex-wrap justify-between items-center pt-[24px]">
+                <div class="w-full text-[24px] md:text-[32px] font-bold md:mb-0">
+                    <p class="text-center dark:text-white text-[#1B2228]">
+                        <?php single_cat_title(); ?>
+                    </p>
+                </div>
+            </div>
+            <div class="w-[100%]">
+                <hr class="w-[100%] border-none h-[6px] bg-[#2D5599]">
+            </div>
+        </div>
+    </header>
 
     <?php if ( have_posts() ) : ?>
 
@@ -41,97 +69,34 @@ $post_archive = array_slice( $the_loop_posts, 9, 10 );
         <p class="md:p-3.5">Sorry, no posts matched your criteria.</p>
     <?php endif; ?>
 
-    <!-- Read More Header -->
-    <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
-        <div class="w-[90%] max-w-[1344px] flex justify-between items-center pt-[24px] pb-[24px]">
-            <div class="text-[32px] font-bold">
-                <p class="dark:text-white text-[#1B2228]">Most Read</p>
-                <hr class="w-[60%] border-none h-[6px] bg-[#2D5599]" />
-            </div>
-        </div>
-    </div>
+    <!-- Most Read -->
+    <?php if ( $most_read_posts_query->have_posts() ) : ?>
 
-    <!-- Most Read Data -->
-    <div class="w-full flex flex-col items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
-        <div class="w-[90%] max-w-[1344px] pb-[48px]">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Card 1 -->
-                <div class="border-b border-gray-300 pb-5">
-                    <h2 class="text-[32px] font-medium text-black dark:text-white font-roboto-serif">
-                        Exploring the Depths of the Ocean
-                    </h2>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                        October 10, 2024
-                    </p>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        An in-depth look at the ongoing recovery efforts in North Carolina following Hurricane Florence.
-                    </p>
-                </div>
-                <!-- Card 2 -->
-                <div class="border-b border-gray-300 pb-5">
-                    <h2 class="text-[32px] font-medium text-black dark:text-white font-roboto-serif">
-                        Innovative Tech Startups to Watch
-                    </h2>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                        October 8, 2023
-                    </p>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Governor has announced a new economic plan for South Carolina, focusing on job creation, business incentives, and workforce development.
-                    </p>
-                </div>
-                <!-- Card 3 -->
-                <div class="border-b border-gray-300 pb-5">
-                    <h2 class="text-[32px] font-medium text-black dark:text-white font-roboto-serif">
-                        Breakthrough in Quantum Computing
-                    </h2>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                        October 8, 2023
-                    </p>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        An in-depth look at the ongoing recovery efforts in North Carolina following Hurricane Florence.
-                    </p>
-                </div>
-                <!-- Card 4 -->
-                <div class="border-b border-gray-300 pb-5">
-                    <h2 class="text-[32px] font-medium text-black dark:text-white font-roboto-serif">
-                        Olympic Games Highlights
-                    </h2>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                        October 8, 2023
-                    </p>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Governor has announced a new economic plan for South Carolina, focusing on job creation, business incentives, and workforce development.
-                    </p>
-                </div>
-                <!-- Card 5 -->
-                <div class="border-b border-gray-300 pb-5">
-                    <h2 class="text-[32px] font-medium text-black dark:text-white font-roboto-serif">
-                        Global Markets React to News
-                    </h2>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                        October 5, 2023
-                    </p>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        An in-depth look at the ongoing recovery efforts in North Carolina following Hurricane Florence.
-                    </p>
-                </div>
-                <!-- Card 6 -->
-                <div class="border-b border-gray-300 pb-5">
-                    <h2 class="text-[32px] font-medium text-black dark:text-white font-roboto-serif">
-                        Exploring the Depths of the Ocean
-                    </h2>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                        October 10, 2024
-                    </p>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        An in-depth look at the ongoing recovery efforts in North Carolina following Hurricane Florence.
-                    </p>
+        <header class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
+            <div class="w-[90%] max-w-[1344px] flex justify-between items-center pt-[24px] pb-[24px]">
+                <div class="text-[32px] font-bold">
+                    <p class="dark:text-white text-[#1B2228]">Most Read</p>
+                    <hr class="w-[60%] border-none h-[6px] bg-[#2D5599]" />
                 </div>
             </div>
-        </div>
-    </div>
+        </header>
 
-    <hr class="border-none h-[1px] bg-[#cbd5e1]" />
+        <aside class="w-full flex flex-col items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
+            <div class="w-[90%] max-w-[1344px] pb-[48px]">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+                    <?php while ( $most_read_posts_query->have_posts() ) : $most_read_posts_query->the_post(); ?>
+                        <?php Template::include('template-parts/archive/_entry-textual.php'); ?>
+                    <?php endwhile; ?>
+
+                    <?php wp_reset_postdata(); ?>
+                    
+                </div>
+            </div>
+        </aside>
+
+        <hr class="border-none h-[1px] bg-[#cbd5e1]" />
+    <?php endif; ?>
 
     <!-- Archive Header -->
     <div class="w-full flex flex-col items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
@@ -139,7 +104,9 @@ $post_archive = array_slice( $the_loop_posts, 9, 10 );
             <div class="w-full flex flex-col items-start justify-start bg-[#f2f3f4] dark:bg-[#1B2228]">
                 <div class="w-full flex flex-col md:flex-row justify-between items-start pt-[24px]">
                     <div class="text-[32px] font-bold">
-                        <p class="dark:text-white text-[#1B2228]">Trending Archive</p>
+                        <p class="dark:text-white text-[#1B2228]">
+                            <?php single_cat_title(); ?> Archive
+                        </p>
                         <hr class="w-[15%] border-none h-[6px] bg-[#2D5599]" />
                     </div>
                 </div>
@@ -163,53 +130,6 @@ $post_archive = array_slice( $the_loop_posts, 9, 10 );
 
                 <?php Template::include('template-parts/_pagination.php'); ?>
 
-                <!-- Pagination -->
-                <div class="flex flex-wrap  flex-col sm:flex-row items-center lg:justify-start justify-center mt-8 mb-8 space-y-4 sm:space-y-0 " >
-                    <span class="text-[#1B2228] dark:text-white md:mr-4 mr-0 md:mb-0 mb-4">Page 10 of 347</span>
-                    <nav class="flex flex-wrap justify-center sm:justify-start space-x-2">
-                        <!-- First Button -->
-                        <button class="px-3 sm:mb-0 mb-2 py-2 bg-gray-200 dark:bg-[#1B2228]  text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                    First
-                    </button>
-                        <!-- Previous Button -->
-                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                    &larr;
-                    </button>
-                        <!-- Ellipsis -->
-                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                    ...
-                    </button>
-                        <!-- Page Numbers -->
-                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                    8
-                    </button>
-                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-300 dark:bg-gray-600 text-gray-900 dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                    10
-                    </button>
-                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                    11
-                    </button>
-                        <!-- Ellipsis -->
-                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                    ...
-                    </button>
-                        <!-- Last Page Buttons -->
-                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                    20
-                    </button>
-                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                    30
-                    </button>
-                        <!-- Next Button -->
-                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                    &rarr;
-                    </button>
-                        <!-- Last Button -->
-                        <button class="px-3 py-2 sm:mb-0 mb-2 bg-gray-200 dark:bg-[#1B2228] text-[#1B2228] dark:text-[#F2F3F4] rounded border border-gray-300 dark:border-gray-600">
-                    Last
-                    </button>
-                    </nav>
-                </div>
             </div>
         </div>
     <?php endif; ?>

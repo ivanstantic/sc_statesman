@@ -1,13 +1,13 @@
 
 <div class="dark:bg-[#1B2228] overflow-hidden">
     <div class="flex justify-center">
-        <a href="<?php echo esc_url( get_permalink() ); ?>" class="block w-full">
-            <?php the_post_thumbnail('thumbnail_small_cropped', [ 'class' => 'w-full' ]); ?>
+        <a href="<?php echo esc_url( get_permalink() ); ?>" class="block aspect-video">            
+            <?php the_post_thumbnail('thumbnail_small_cropped', [ 'class' => 'w-full h-full object-cover' ]); ?> 
         </a>
     </div>
     <div class="py-4">
         <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-roboto-serif">
-            <a href="<?php echo esc_url( get_permalink() ); ?>">
+            <a href="<?php echo esc_url( get_permalink() ); ?>" class="hover:underline">
                 <?php the_title(); ?>
             </a>
         </h3>

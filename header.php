@@ -54,34 +54,13 @@ endif;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SC Statesman</title>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Serif:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
 
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <!-- <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    fontFamily: {
-                        roboto: ["Roboto", "sans-serif"], // For Roboto
-                        "roboto-serif": ["Roboto Serif", "serif"], // For Roboto Serif
-                    },
-                },
-            },
-        };
-    </script> -->
-    <style>
-        body {
-            font-family: "Public Sans", sans-serif;
-        }
-    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
 
     <?php wp_head(); ?>
 </head>
 
-<body class="bg-gray-100 text-gray-900 w-full">
+<body class="w-full bg-gray-100 text-gray-900">
     <!-- Header -->
     <header class="flex items-center justify-center bg-[#1B3664] text-white">
         <div class="container w-[90%] max-w-[1344px] flex flex-wrap items-center justify-between py-4 md:py-8">

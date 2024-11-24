@@ -28,7 +28,7 @@
 /* Gutenberg Post/Page Title */
 .editor-styles-wrapper {
   .wp-block-post-title {
-    @apply mx-auto mb-5 max-w-[848px] p-2 text-3xl md:text-5xl font-bold text-hc-gray-dark;
+    @apply mx-auto mb-5 max-w-[848px] p-2 text-3xl md:text-5xl font-bold;
   }
 }
 

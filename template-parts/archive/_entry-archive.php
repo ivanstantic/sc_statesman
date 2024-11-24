@@ -7,7 +7,7 @@
     </div>
     <div class="p-4 w-full md:w-[70%]">
         <h2 class="text-[24px] md:text-[32px] font-medium text-black dark:text-white font-roboto-serif">
-            <a href="<?php echo esc_url( get_permalink() ); ?>">
+            <a href="<?php echo esc_url( get_permalink() ); ?>" class="hover:underline">
                 <?php the_title(); ?>
             </a>
         </h2>

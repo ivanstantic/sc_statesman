@@ -4,7 +4,7 @@
   }
 
   .page-numbers.current span {
-    @apply bg-[#f7f7f7] text-black;
+    @apply bg-gray-300 dark:bg-gray-600 text-gray-900 dark:text-[#F2F3F4];
   }
 
   .next {
