@@ -1,4 +1,8 @@
 
+<?php
+use Theme\Template;
+?>
+
 <!-- Article Header -->
 <header class="w-full flex items-center justify-center  ">
     <div class="w-full p-4 md:p-0 max-w-[1344px]">
@@ -108,7 +112,10 @@
             </div>
     </div>
 </main>
+
 <hr class="border-none h-[1px] bg-[#cbd5e1]" />
+
+<!-- Related Articles -->
 <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
     <div class="xl:w-[70%] lg:w-[80%] w-[90%] flex justify-between items-center pt-[24px] pb-[0px]">
         <div class="text-[32px] font-bold">
@@ -122,7 +129,61 @@
 </div>
 <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
     <div class="xl:w-[70%] lg:w-[80%] w-[90%] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 py-8">
-        <div class="dark:bg-[#1B2228] overflow-hidden">
+        <?php
+            global $post;
+
+            $related_args = array(
+                'post_type'      => 'post',
+                'posts_per_page' => 3,
+                'post__not_in'   => array( $post->ID ),
+                'ignore_sticky_posts' => 1,
+                'orderby'        => 'rand', // Randomize related posts
+            );
+            
+            // Get the current post's categories and tags
+            $categories = get_the_category( $post->ID );
+            $tags = get_the_tags( $post->ID );
+            
+            // Build tax_query based on categories and tags
+            if ( $categories || $tags ) {
+                $tax_query = array('relation' => 'OR');
+            
+                if ( $categories ) {
+                    $category_ids = array();
+                    foreach( $categories as $category ) {
+                        $category_ids[] = $category->term_id;
+                    }
+                    $tax_query[] = array(
+                        'taxonomy' => 'category',
+                        'field'    => 'term_id',
+                        'terms'    => $category_ids,
+                    );
+                }
+            
+                if ( $tags ) {
+                    $tag_ids = array();
+                    foreach( $tags as $tag ) {
+                        $tag_ids[] = $tag->term_id;
+                    }
+                    $tax_query[] = array(
+                        'taxonomy' => 'post_tag',
+                        'field'    => 'term_id',
+                        'terms'    => $tag_ids,
+                    );
+                }
+            
+                $related_args['tax_query'] = $tax_query;
+            }
+            
+            // Query related posts
+            $related_query = new WP_Query( $related_args );
+        ?>
+        <?php while ( $related_query->have_posts() ) : $related_query->the_post(); ?>
+            <?php Template::include('template-parts/archive/_entry-grid.php', [ 'hide_excerpt' => true ]); ?>
+        <?php endwhile; ?>
+
+        <?php wp_reset_postdata(); ?>
+        <!-- <div class="dark:bg-[#1B2228] overflow-hidden">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-9.png" alt="Card Image"
                 class="w-full h-[220px] object-cover rounded" />
             <div class="py-4">
@@ -160,12 +221,14 @@
                     October 8, 2023
                 </p>
             </div>
-        </div>
+        </div> -->
 
     </div>
 </div>
 
 <hr class="border-none h-[1px] bg-[#cbd5e1]" />
+
+<!-- Latest News -->
 <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
     <div class="w-[90%] max-w-[1344px] flex justify-between items-center pt-[24px] pb-[0px]">
         <div class="text-[32px] font-bold">
@@ -179,109 +242,18 @@
 </div>
 <div class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
     <div class="w-[90%] max-w-[1344px] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 py-8">
-        <div class="dark:bg-[#1B2228] overflow-hidden">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-9.png" alt="Card Image"
-                class="w-full h-[220px] object-cover rounded" />
-            <div class="py-4">
-                <h3
-                    class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
-                    Local Business Thrives Amid Economic Challenges
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    October 9, 2023
-                </p>
-            </div>
-        </div>
-        <div class="dark:bg-[#1B2228] overflow-hidden">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-10.png" alt="Card Image"
-                class="w-full h-[220px] object-cover rounded" />
-            <div class="py-4">
-                <h3
-                    class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
-                    Health Officials Warn of Flu Season
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    October 8, 2023
-                </p>
-            </div>
-        </div>
-        <div class="dark:bg-[#1B2228] overflow-hidden">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-11.png" alt="Card Image"
-                class="w-full h-[220px] object-cover rounded" />
-            <div class="py-4">
-                <h3
-                    class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
-                    High School Football Team Wins State Championship
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    October 8, 2023
-                </p>
-            </div>
-        </div>
-        <div class="dark:bg-[#1B2228] overflow-hidden">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-4.png" alt="Card Image"
-                class="w-full h-[220px] object-cover rounded" />
-            <div class="py-4">
-                <h3
-                    class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
-                    Global Markets React to News
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    October 8, 2023
-                </p>
-            </div>
-        </div>
-        <div class="dark:bg-[#1B2228] overflow-hidden">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-5.png" alt="Card Image"
-                class="w-full h-[220px] object-cover rounded" />
-            <div class="py-4">
-                <h3
-                    class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
-                    Exploring the Depths of the Ocean
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    October 8, 2023
-                </p>
-            </div>
-        </div>
-        <div class="dark:bg-[#1B2228] overflow-hidden">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-6.png" alt="Card Image"
-                class="w-full h-[220px] object-cover rounded" />
-            <div class="py-4">
-                <h3
-                    class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
-                    Tech Giants Merge in Historic Deal
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    October 8, 2023
-                </p>
-            </div>
-        </div>
-        <div class="dark:bg-[#1B2228] overflow-hidden">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-7.png" alt="Card Image"
-                class="w-full h-[220px] object-cover rounded" />
-            <div class="py-4">
-                <h3
-                    class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
-                    New Study on Mental Health
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    October 8, 2023
-                </p>
-            </div>
-        </div>
-        <div class="dark:bg-[#1B2228] overflow-hidden">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/grid/grid-8.png" alt="Card Image"
-                class="w-full h-[220px] object-cover rounded" />
-            <div class="py-4">
-                <h3
-                    class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-medium font-roboto-serif">
-                    Election Results Announced
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    October 8, 2023
-                </p>
-            </div>
-        </div>
+        <?php
+            $args = array(
+                'posts_per_page' => 8,
+                'post_status'    => 'publish',
+            );
+            
+            $latest_news_query = new WP_Query( $args );
+        ?>
+        <?php while ( $latest_news_query->have_posts() ) : $latest_news_query->the_post(); ?>
+            <?php Template::include('template-parts/archive/_entry-grid.php', [ 'hide_excerpt' => true ]); ?>
+        <?php endwhile; ?>
+
+        <?php wp_reset_postdata(); ?>
     </div>
 </div>
