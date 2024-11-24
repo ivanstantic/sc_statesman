@@ -38,6 +38,9 @@ require_once ( '_core/admin/_init.php' );
 // Setup
 require_once ( '_core/setup.php' );
 
+// The Loop
+require_once ( '_core/the_loop.php' );
+
 // Enqueue
 require_once ( '_core/enqueue.php' );
 
