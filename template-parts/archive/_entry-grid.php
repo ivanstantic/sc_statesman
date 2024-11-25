@@ -6,6 +6,11 @@
         </a>
     </div>
     <div class="py-4">
+        <?php if ( isset($show_category) && $show_category && !empty(scs_get_the_category() )) : ?>
+            <div class="mb-1 text-[#4864c0] text-[14px] font-bold font-roboto-serif">
+                <?php scs_the_category(', '); ?>
+            </div>
+        <?php endif; ?>
         <h3 class="text-[20px] font-semibold text-gray-800 dark:text-white leading-[24px] font-roboto-serif">
             <a href="<?php echo esc_url( get_permalink() ); ?>" class="hover:underline">
                 <?php the_title(); ?>

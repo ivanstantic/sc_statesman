@@ -1563,6 +1563,9 @@ input:checked + .toggle-bg{
 .max-w-\[750px\]{
   max-width: 750px;
 }
+.max-w-none{
+  max-width: none;
+}
 .flex-1{
   flex: 1 1 0%;
 }
@@ -2287,6 +2290,18 @@ input:checked + .toggle-bg{
 @supports (color: rgb(0 0 0 / 0)){
 .text-white{
     color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
+}
+.text-\[4864c0\]{
+  color: 4864c0;
+}
+.text-\[\#4864c0\]{
+  --tw-text-opacity: 1;
+  color: rgb(72 100 192 / 1);
+}
+@supports (color: rgb(0 0 0 / 0)){
+.text-\[\#4864c0\]{
+    color: rgb(72 100 192 / var(--tw-text-opacity));
   }
 }
 .antialiased{

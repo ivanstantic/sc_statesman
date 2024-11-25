@@ -21,7 +21,52 @@ if (!function_exists('scs_the_post_thumbnail')) {
 }
 
 /**
- * Get post date in time ago format
+ * Get post comma separated categories
+ */
+if (!function_exists('scs_get_the_category')) {
+    function scs_get_the_category() {
+        $categories = [];
+        $all_categories = get_the_category();
+
+        if ( ! empty( $all_categories ) ) {
+
+            foreach ( $all_categories as $category ) {
+                // Exclude the 'Uncategorized' category by its slug
+                if ( $category->slug === 'uncategorized' ) {
+                    continue; // Skip this category
+                }
+
+                $categories[] = $category;
+            }
+        }
+
+        return $categories;
+    }
+}
+
+/**
+ * Echo post comma separated categories
+ */
+if (!function_exists('scs_the_category')) {
+    function scs_the_category() {
+        $categories = scs_get_the_category();
+
+        if ( ! empty( $categories ) ) {
+            $separator = ', ';
+            $output = '';
+
+            foreach ( $categories as $category ) {
+                $output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
+            }
+
+            // Remove the trailing separator and display the categories
+            echo rtrim( $output, $separator );
+        }
+    }
+}
+
+/**
+ * Echo post date in time ago format
  */
 if (!function_exists('scs_the_time_ago')) {
     function scs_the_time_ago()
@@ -69,7 +114,7 @@ if (!function_exists('scs_get_excerpt_with_char_limit')) {
 }
 
 /**
- * Print the excerpt with character limit
+ * Echo the excerpt with character limit
  * @param $length
  */
 if (!function_exists('scs_the_excerpt_with_char_limit')) {
@@ -105,7 +150,7 @@ if (!function_exists('scs_get_excerpt_with_word_limit')) {
 }
 
 /**
- * Print the excerpt with word limit
+ * Echo the excerpt with word limit
  * @param $limit
  */
 if (!function_exists('scs_the_excerpt_with_word_limit')) {
@@ -131,7 +176,7 @@ if (!function_exists('scs_get_reading_time')) {
 }
 
 /**
- * Print the reading time within the loop
+ * Echo the reading time within the loop
  */
 if (!function_exists('scs_the_reading_time')) {
     function scs_the_reading_time() {
