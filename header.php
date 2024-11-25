@@ -96,14 +96,16 @@ endif;
 
             <!-- Actions: Subscribe, Search, Theme Toggle -->
             <div class="flex items-center space-x-4 md:mt-0">
-                <a href="#" class="text-gray-300 hover:text-white text-sm">Subscribe</a>
-                <a href="#">
+                <a href="#subscribe" class="text-gray-300 hover:text-white text-sm">
+                    Subscribe
+                </a>
+                <!-- <a href="#">
                     <img
                     src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/icons/search-icon.svg"
                     alt="Search Icon"
                     class="w-5 h-auto"
                     />
-                </a>
+                </a> -->
                 <div id="theme-toggle" class="relative flex items-center w-10 h-6 bg-[#4864C0] dark:bg-black rounded-full cursor-pointer">
                     <div id="toggle-thumb" class="absolute w-5 h-5 dark:bg-[#1B3664] bg-white rounded-full  flex items-center justify-center transform transition-transform duration-300">
                         <img id="toggle-icon" src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/icons/day-icon.svg" alt="Day Icon" class="w-10 h-6" />

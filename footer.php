@@ -1,8 +1,8 @@
 
     <hr class="border-none h-[1px] bg-[#cbd5e1]" />
 
-    <!-- seacrh -->
-    <div class="w-full pb-[76px] pt-[96px] flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
+    <!-- Subscribe -->
+    <div id="subscribe" class="w-full pb-[76px] pt-[96px] flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
         <div class="w-[90%] max-w-[1344px] md:w-[60%] text-center">
             <h2 class="text-xl md:text-2xl font-bold text-[#1B2228] font-roboto-serif dark:text-white mb-4">
                 Stay Informed
@@ -34,10 +34,8 @@
                 <div>
                     <h3 class="text-lg font-bold">About Us</h3>
                     <ul class="mt-4 space-y-2">
-                        <li><a href="#" class="hover:text-gray-300">Our Team</a></li>
-                        <li><a href="#" class="hover:text-gray-300">Contact Us</a></li>
-                        <li><a href="#" class="hover:text-gray-300">Subscribe</a></li>
-                        <li><a href="#" class="hover:text-gray-300">Page Link</a></li>
+                        <li><a href="/about/" class="hover:text-gray-300">Our Mission</a></li>
+                        <li><a href="#subscribe" class="hover:text-gray-300">Subscribe</a></li>
                     </ul>
                 </div>
 
@@ -45,7 +43,6 @@
                 <div>
                     <h3 class="text-lg font-bold">Resources</h3>
                     <ul class="mt-4 space-y-2">
-                        <li><a href="#" class="hover:text-gray-300">Advertise</a></li>
                         <li>
                             <a href="#" class="hover:text-gray-300">Privacy Policy</a>
                         </li>
@@ -62,7 +59,6 @@
                         <li><a href="#" class="hover:text-gray-300">Facebook</a></li>
                         <li><a href="#" class="hover:text-gray-300">Twitter</a></li>
                         <li><a href="#" class="hover:text-gray-300">Instagram</a></li>
-                        <li><a href="#" class="hover:text-gray-300">LinkedIn</a></li>
                     </ul>
                 </div>
 
@@ -107,33 +103,37 @@
             toggleIcon.src = "<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/icons/day-icon.svg";
         }
 
-        themeToggle.addEventListener("click", () => {
-            if (document.documentElement.classList.contains("dark")) {
-                document.documentElement.classList.remove("dark");
-                localStorage.theme = "light";
-                toggleThumb.classList.add("translate-x-1");
-                toggleThumb.classList.remove("translate-x-4");
-                toggleIcon.src = "<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/icons/day-icon.svg";
-            } else {
-                document.documentElement.classList.add("dark");
-                localStorage.theme = "dark";
-                toggleThumb.classList.add("translate-x-4");
-                toggleThumb.classList.remove("translate-x-1");
-                toggleIcon.src = "<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/icons/night-icon.svg";
-            }
-        });
+        if ( themeToggle ) {
+            themeToggle.addEventListener("click", () => {
+                if (document.documentElement.classList.contains("dark")) {
+                    document.documentElement.classList.remove("dark");
+                    localStorage.theme = "light";
+                    toggleThumb.classList.add("translate-x-1");
+                    toggleThumb.classList.remove("translate-x-4");
+                    toggleIcon.src = "<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/icons/day-icon.svg";
+                } else {
+                    document.documentElement.classList.add("dark");
+                    localStorage.theme = "dark";
+                    toggleThumb.classList.add("translate-x-4");
+                    toggleThumb.classList.remove("translate-x-1");
+                    toggleIcon.src = "<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/icons/night-icon.svg";
+                }
+            });
+        }
 
         const menuToggle = document.getElementById("mobile-menu-toggle");
         const mobileMenu = document.getElementById("mobile-menu");
         const hamburgerIcon = document.getElementById("hamburger-icon");
         const closeIcon = document.getElementById("close-icon");
 
-        menuToggle.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
+        if ( menuToggle ) {
+            menuToggle.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
 
-            hamburgerIcon.classList.toggle("hidden");
-            closeIcon.classList.toggle("hidden");
-        });
+                hamburgerIcon.classList.toggle("hidden");
+                closeIcon.classList.toggle("hidden");
+            });
+        }
     </script>
 </body>
 

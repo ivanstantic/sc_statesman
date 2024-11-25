@@ -8,7 +8,7 @@
     <main class="max-w-[1920px]">
         <!-- Entry -->
         <?php while (have_posts()) : the_post(); ?>
-            <div class="mt-16">
+            <div>
                 <?php the_content(); ?>
             </div>
         <?php endwhile; ?>
