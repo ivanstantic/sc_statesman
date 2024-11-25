@@ -1,0 +1,18 @@
+{
+    "name": "scs/posts",
+    "title": "Posts",
+    "description": "Posts archive section.",
+    "category": "scs",
+    "icon": "grid-view",
+    "keywords": ["posts", "archive"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "posts.php"
+    },
+    "supports": {
+        "align": false,
+        "anchor": true,
+        "customClassName": true,
+        "reusable": false
+    }
+}

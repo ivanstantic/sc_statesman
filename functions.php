@@ -22,10 +22,6 @@ function theme_autoload_classes($class_name) {
 // Register the autoloader
 spl_autoload_register('Theme\theme_autoload_classes');
 
-// require_once ( '_core/classes/Template.php' );
-// require_once ( '_core/classes/menus/Tailwind_Walker_Nav_Menu_Desktop.php' );
-// require_once ( '_core/classes/menus/Tailwind_Walker_Nav_Menu_Mobile.php' );
-
 // Helper Functions
 require_once ( '_core/helpers/helper-functions.php' );
 
