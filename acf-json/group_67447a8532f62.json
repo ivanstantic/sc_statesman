@@ -57,7 +57,8 @@
             },
             "choices": {
                 "layout_a": "Layout A",
-                "layout_b": "Layout B"
+                "layout_b": "Layout B",
+                "layout_c": "Layout C"
             },
             "default_value": "layout_a",
             "return_format": "value",
@@ -109,5 +110,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732548120
+    "modified": 1732553766
 }

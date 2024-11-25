@@ -13,7 +13,7 @@
 
 /* Hide Custom Blocks From The Core Page Template */
 .is-core-page-template {
-  [class*="editor-block-list-item-hc"] {
+  [class*="editor-block-list-item-scs"] {
     display: none;
   }
 

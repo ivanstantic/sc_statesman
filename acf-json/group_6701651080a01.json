@@ -5,7 +5,7 @@
         {
             "key": "field_674492add6880",
             "label": "Number Of Posts",
-            "name": "number_of_posts",
+            "name": "posts_per_page",
             "aria-label": "",
             "type": "number",
             "instructions": "",
@@ -16,12 +16,12 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": 12,
-            "min": "",
+            "default_value": 1,
+            "min": 1,
             "max": "",
             "allow_in_bindings": 0,
             "placeholder": "",
-            "step": "",
+            "step": 1,
             "prepend": "",
             "append": ""
         },
@@ -294,5 +294,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732550607
+    "modified": 1732554664
 }

@@ -133,6 +133,74 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+/***/ }),
+
+/***/ "./src/js/admin/modules/page-template.js":
+/*!***********************************************!*\
+  !*** ./src/js/admin/modules/page-template.js ***!
+  \***********************************************/
+/***/ (() => {
+
+wp.domReady(function () {
+  var _wp$data = wp.data,
+    select = _wp$data.select,
+    subscribe = _wp$data.subscribe;
+
+  // Subscribe to changes
+  subscribe(function () {
+    checkPageTemplate();
+  });
+
+  // Initial load of styles based on the current post
+  function checkPageTemplate() {
+    var currentTemplate = select('core/editor').getEditedPostAttribute('template');
+    updateEditorStyles(currentTemplate);
+  }
+
+  // Function to update editor styles
+  function updateEditorStyles(template) {
+    if (template) {
+      // Toggle custom page template body class
+      document.body.classList.add('is-scs-page-template');
+      document.body.classList.remove('is-core-page-template');
+      // Add custom page template styles
+      addPageStylesheet();
+      var link = document.getElementById('scs-admin-prose-css');
+      if (link) {
+        link.remove();
+      }
+    } else {
+      // Toggle custom page template body class
+      document.body.classList.add('is-core-page-template');
+      document.body.classList.remove('is-scs-page-template');
+      // Add prose styles
+      addProseStylesheet();
+      var _link = document.getElementById('scs-admin-page-css');
+      if (_link) {
+        _link.remove();
+      }
+    }
+  }
+});
+var addPageStylesheet = function addPageStylesheet() {
+  if (!document.getElementById('hc-admin-page-css')) {
+    var link = document.createElement('link');
+    link.id = 'scs-admin-page-css';
+    link.rel = 'stylesheet';
+    link.href = '/wp-content/themes/scs/_assets/public/css/admin/page.css';
+    document.head.appendChild(link);
+  }
+};
+var addProseStylesheet = function addProseStylesheet() {
+  if (!document.getElementById('hc-admin-prose-css')) {
+    var link = document.createElement('link');
+    link.id = 'scs-admin-prose-css';
+    link.rel = 'stylesheet';
+    link.href = '/wp-content/themes/scs/_assets/public/css/admin/prose.css';
+    document.head.appendChild(link);
+  }
+};
+
 /***/ })
 
 /******/ 	});
@@ -211,8 +279,11 @@ var __webpack_exports__ = {};
   !*** ./src/js/admin/script.js ***!
   \********************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_acf__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/acf */ "./src/js/admin/modules/acf.js");
-/* harmony import */ var _modules_acf__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_modules_acf__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _modules_page_template__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/page-template */ "./src/js/admin/modules/page-template.js");
+/* harmony import */ var _modules_page_template__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_modules_page_template__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _modules_acf__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/acf */ "./src/js/admin/modules/acf.js");
+/* harmony import */ var _modules_acf__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_acf__WEBPACK_IMPORTED_MODULE_1__);
+
 
 })();
 

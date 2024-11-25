@@ -5,7 +5,7 @@
     $view_more_url = get_field( 'view_more_url' );
     $layout = get_field( 'layout' );
 
-    $number_of_posts = get_field( 'number_of_posts' );
+    $posts_per_page = get_field( 'posts_per_page' );
     $post_type = get_field('post_type');
     $order = get_field('order');
     $category_list = get_field('category_list');
@@ -18,7 +18,7 @@
 
     $query = array(
         'post_type'      => $post_type,
-        'posts_per_page' => $number_of_posts,
+        'posts_per_page' => isset( $posts_per_page ) ? $posts_per_page : 1,
         'post_status'    => 'publish',
         'order'          => $order,
     );
@@ -72,6 +72,10 @@
 
     <?php if ( $layout === 'layout_b' ) : ?>
         <?php Template::include('_core/blocks/posts/layouts/layout_b.php', [ 'query' => $query ]); ?>
+    <?php endif; ?>
+
+    <?php if ( $layout === 'layout_c' ) : ?>
+        <?php Template::include('_core/blocks/posts/layouts/layout_c.php', [ 'query' => $query ]); ?>
     <?php endif; ?>
 
     <hr class="border-none h-[1px] bg-[#cbd5e1]" />
