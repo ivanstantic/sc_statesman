@@ -3,9 +3,9 @@
 /**
  * Populate ACF category list field options
  */
-add_filter( 'acf/load_field/name=category_list', 'hc_populate_category_select_field' );
+add_filter( 'acf/load_field/name=category_list', 'scs_populate_category_select_field' );
 
-function hc_populate_category_select_field( $field ) {
+function scs_populate_category_select_field( $field ) {
     // Reset choices
     $field['choices'] = [];
 
@@ -25,9 +25,9 @@ function hc_populate_category_select_field( $field ) {
 /**
  * Populate ACF tag list field options
  */
-add_filter( 'acf/load_field/name=tag_list', 'hc_populate_tag_select_field' );
+add_filter( 'acf/load_field/name=tag_list', 'scs_populate_tag_select_field' );
 
-function hc_populate_tag_select_field( $field ) {
+function scs_populate_tag_select_field( $field ) {
     // Reset choices
     $field['choices'] = [];
 

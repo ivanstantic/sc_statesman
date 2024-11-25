@@ -4,12 +4,44 @@
     $title = get_field( 'title' );
     $view_more_url = get_field( 'view_more_url' );
     $layout = get_field( 'layout' );
+
     $number_of_posts = get_field( 'number_of_posts' );
+    $post_type = get_field('post_type');
+    $order = get_field('order');
+    $category_list = get_field('category_list');
+    $category_list_operator = get_field('category_list_operator');
+    $tag_list = get_field('tag_list');
+    $tag_list_operator = get_field('tag_list_operator');
+    $posts_list = get_field('post__in');
+    $exclude_posts_list = get_field('post__not_in');
+    $offset = get_field('offset');
 
     $query = array(
+        'post_type'      => $post_type,
         'posts_per_page' => $number_of_posts,
         'post_status'    => 'publish',
+        'order'          => $order,
     );
+
+    if ( !empty( $category_list ) ) {
+        $query[$category_list_operator] = $category_list;
+    }
+
+    if ( !empty( $tag_list ) ) {
+        $query[$tag_list_operator] = $tag_list;
+    }
+
+    if ( !empty( $posts_list ) ) {
+        $query['post__in'] = $posts_list;
+    }
+
+    if ( !empty( $exclude_posts_list ) ) {
+        $query['post__not_in'] = $exclude_posts_list;
+    }
+
+    if ( !empty( $offset ) ) {
+        $query['offset'] = $offset;
+    }
 ?>
 
 <section>
@@ -41,5 +73,7 @@
     <?php if ( $layout === 'layout_b' ) : ?>
         <?php Template::include('_core/blocks/posts/layouts/layout_b.php', [ 'query' => $query ]); ?>
     <?php endif; ?>
+
+    <hr class="border-none h-[1px] bg-[#cbd5e1]" />
 
 </section>

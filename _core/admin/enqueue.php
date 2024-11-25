@@ -1,9 +1,9 @@
 <?php
 
 // Enqueue admin specific assets
-add_action('admin_enqueue_scripts', 'hc_enqueue_admin_editor_assets');
+add_action('admin_enqueue_scripts', 'scs_enqueue_admin_editor_assets');
 
-function hc_enqueue_admin_editor_assets($hook_suffix) {
+function scs_enqueue_admin_editor_assets($hook_suffix) {
     global $post;
 
     // Only add styles on post editing pages
@@ -14,27 +14,27 @@ function hc_enqueue_admin_editor_assets($hook_suffix) {
         if ( isset( $post ) ) {
             $page_template = get_post_meta( $post->ID, '_wp_page_template', true );
             if ( $screen->post_type === 'page' && !empty( $page_template ) ) {
-                hc_enqueue_admin_modules_style();
+                scs_enqueue_admin_modules_style();
             } else {
-                hc_enqueue_admin_prose_style();
+                scs_enqueue_admin_prose_style();
             }
         }
     }
 
-    hc_enqueue_admin_script();
+    scs_enqueue_admin_script();
 }
 
 // Enqueue admin specific styles and scripts
-add_action('enqueue_block_assets', 'hc_enqueue_block_editor_assets');
+add_action('enqueue_block_assets', 'scs_enqueue_block_editor_assets');
 
-function hc_enqueue_block_editor_assets($hook_suffix) {
-    hc_enqueue_admin_modules_style();
-    hc_enqueue_admin_script();
+function scs_enqueue_block_editor_assets($hook_suffix) {
+    scs_enqueue_admin_modules_style();
+    scs_enqueue_admin_script();
 }
 
 
 // Enqueue assets wrappers
-function hc_enqueue_admin_modules_style() {
+function scs_enqueue_admin_modules_style() {
     wp_enqueue_style(
         'scs-admin-page-css',
         get_template_directory_uri() . '/_assets/public/css/admin/page.css',
@@ -44,7 +44,7 @@ function hc_enqueue_admin_modules_style() {
     );
 }
 
-function hc_enqueue_admin_prose_style() {
+function scs_enqueue_admin_prose_style() {
     wp_enqueue_style(
         'scs-admin-post-css',
         get_template_directory_uri() . '/_assets/public/css/admin/prose.css',
@@ -54,7 +54,7 @@ function hc_enqueue_admin_prose_style() {
     );
 }
 
-function hc_enqueue_admin_script() {
+function scs_enqueue_admin_script() {
     wp_enqueue_script(
         'scs-admin-script',
         get_stylesheet_directory_uri() . '/_assets/public/js/admin/script.js',

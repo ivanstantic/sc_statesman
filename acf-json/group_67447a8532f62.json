@@ -69,11 +69,11 @@
             "placeholder": ""
         },
         {
-            "key": "field_67448321fcb13",
-            "label": "Number of posts",
-            "name": "number_of_posts",
+            "key": "field_674491ce52df8",
+            "label": "Posts",
+            "name": "",
             "aria-label": "",
-            "type": "number",
+            "type": "clone",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -82,14 +82,13 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": 12,
-            "min": "",
-            "max": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "step": "",
-            "prepend": "",
-            "append": ""
+            "clone": [
+                "group_6701651080a01"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         }
     ],
     "location": [
@@ -110,5 +109,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732543307
+    "modified": 1732548120
 }
