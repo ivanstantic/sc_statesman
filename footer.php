@@ -57,10 +57,10 @@
                     <h3 class="text-lg font-bold">Resources</h3>
                     <ul class="mt-4 space-y-2">
                         <li>
-                            <a href="#" class="hover:text-gray-300">Privacy Policy</a>
+                            <a href="/privacy-policy/" class="hover:text-gray-300">Privacy Policy</a>
                         </li>
                         <li>
-                            <a href="#" class="hover:text-gray-300">Terms of Service</a>
+                            <a href="/terms-of-service/" class="hover:text-gray-300">Terms of Service</a>
                         </li>
                     </ul>
                 </div>

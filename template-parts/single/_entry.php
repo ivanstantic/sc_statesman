@@ -15,7 +15,7 @@ use Theme\Template;
                         <?php scs_the_category(', '); ?>
                     </div>
                 <?php endif; ?>
-                <h1 class="lg:text-[3rem] md:text-[2.5rem] sm:text-[2.5rem] text-[2rem] leading-[52px] font-bold mt-2 w-[77%]">
+                <h1 class="mt-2 text-[2rem] sm:text-[2.5rem] md:text-[2.5rem] lg:text-[3rem] leading-[52px] font-bold">
                     <?php the_title(); ?>
                 </h1>
                 <!-- <p class="text-gray-600 mt-2 text-[20px] dark:text-white">
