@@ -2,8 +2,8 @@
 use Theme\Template;
 
 // The loop posts
+$the_loop_posts = array();
 if ( have_posts() ) {
-    $the_loop_posts = array();
     while ( have_posts() ) {
         the_post();
         $the_loop_posts[] = $post;
