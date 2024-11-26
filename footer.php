@@ -10,9 +10,22 @@
             <p class="text-gray-700 dark:text-gray-400 mb-6 text-sm md:text-base">
                 Subscribe to our newsletter for the latest updates.
             </p>
-            <form class="flex flex-col md:flex-row items-center justify-center gap-4">
-                <input type="email" placeholder="Email address" class="bg-white text-gray-900 dark:bg-black dark:text-gray-200 py-3 px-4 rounded-lg w-full md:w-[60%] focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                <button type="submit" class="bg-[#4864C0] hover:bg-[#3d579e] text-white py-3 px-8 rounded-lg font-medium w-full md:w-auto">
+            <form
+                class="flex flex-col md:flex-row items-center justify-center gap-4"
+                method="post"
+                action="http://scstatesman.test/wp-admin/admin-ajax.php?action=tnp&na=s"
+            >
+                <input
+                    type="email"
+                    name="ne"
+                    placeholder="Email address"
+                    class="bg-white text-gray-900 dark:bg-black dark:text-gray-200 py-3 px-4 rounded-lg w-full md:w-[60%] focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                />
+                <button
+                    type="submit"
+                    class="bg-[#4864C0] hover:bg-[#3d579e] text-white py-3 px-8 rounded-lg font-medium w-full md:w-auto"
+                >
                     Subscribe
                 </button>
             </form>
