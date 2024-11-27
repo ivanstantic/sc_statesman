@@ -1,7 +1,7 @@
 {
     "/public/js/frontend/script.js": "/public/js/frontend/script.js",
     "/public/js/admin/script.js": "/public/js/admin/script.js",
+    "/public/css/frontend/style.css": "/public/css/frontend/style.css",
     "/public/css/admin/page.css": "/public/css/admin/page.css",
-    "/public/css/admin/prose.css": "/public/css/admin/prose.css",
-    "/public/css/frontend/style.css": "/public/css/frontend/style.css"
+    "/public/css/admin/prose.css": "/public/css/admin/prose.css"
 }

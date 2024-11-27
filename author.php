@@ -60,7 +60,7 @@ $most_read_posts_query = new WP_Query( $args );
             <div class="w-[90%] max-w-[1344px] flex justify-between items-center pt-[24px] pb-[24px]">
                 <div class="text-[32px] font-bold">
                     <p class="dark:text-white text-[#1B2228]">Most Read</p>
-                    <hr class="w-[60%] border-none h-[6px] bg-[#2D5599]" />
+                    <hr class="w-[60%] border-none h-[6px] bg-red-700" />
                 </div>
             </div>
         </header>
@@ -91,7 +91,7 @@ $most_read_posts_query = new WP_Query( $args );
                         <p class="dark:text-white text-[#1B2228]">
                             <?php single_cat_title(); ?> Archive
                         </p>
-                        <hr class="w-[15%] border-none h-[6px] bg-[#2D5599]" />
+                        <hr class="w-[15%] border-none h-[6px] bg-red-700" />
                     </div>
                 </div>
             </div>

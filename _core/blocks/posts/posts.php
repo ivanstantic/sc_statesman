@@ -53,7 +53,7 @@
                     <p class="dark:text-white text-[#1B2228]">
                         <?php echo $title; ?>
                     </p>
-                    <hr class="w-[60%] border-none h-[6px] bg-[#2D5599]" />
+                    <hr class="w-[60%] border-none h-[6px] bg-red-700" />
                 </div>
                 <div class="flex items-center justify-center gap-2 text-[14px] text-[#4864C0] cursor-pointer">
                     <?php if ( $view_more_url ) : ?>
@@ -78,6 +78,6 @@
         <?php Template::include('_core/blocks/posts/layouts/layout_c.php', [ 'query' => $query ]); ?>
     <?php endif; ?>
 
-    <hr class="border-none h-[2px] bg-red-700" />
+    <hr class="border-none h-[1px] bg-[#cbd5e1]" />
 
 </section>
