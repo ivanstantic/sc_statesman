@@ -1452,6 +1452,9 @@ input:checked + .toggle-bg{
 .h-\[1px\]{
   height: 1px;
 }
+.h-\[2px\]{
+  height: 2px;
+}
 .h-\[6px\]{
   height: 6px;
 }
@@ -1461,17 +1464,11 @@ input:checked + .toggle-bg{
 .h-full{
   height: 100%;
 }
-.h-\[2px\]{
-  height: 2px;
-}
 .w-1\/2{
   width: 50%;
 }
 .w-10{
   width: 2.5rem;
-}
-.w-36{
-  width: 9rem;
 }
 .w-4{
   width: 1rem;
@@ -1919,24 +1916,6 @@ input:checked + .toggle-bg{
 .bg-white\/50{
   background-color: rgb(255 255 255 / 0.5);
 }
-.bg-red-800{
-  --tw-bg-opacity: 1;
-  background-color: rgb(155 28 28 / 1);
-}
-@supports (color: rgb(0 0 0 / 0)){
-.bg-red-800{
-    background-color: rgb(155 28 28 / var(--tw-bg-opacity));
-  }
-}
-.bg-red-700\/75{
-  background-color: rgb(200 30 30 / 0.75);
-}
-.bg-red-700\/50{
-  background-color: rgb(200 30 30 / 0.5);
-}
-.bg-red-700\/25{
-  background-color: rgb(200 30 30 / 0.25);
-}
 .object-cover{
   -o-object-fit: cover;
      object-fit: cover;
@@ -2343,6 +2322,15 @@ img {
 }
 a {
   cursor: pointer;
+}
+.custom-logo{
+  height: auto;
+  width: 9rem;
+}
+@media (min-width: 768px){
+  .custom-logo{
+    width: 13rem;
+  }
 }
 .prose :is(h1, h2, h3, h4, h5, h6){
   font-weight: 600;

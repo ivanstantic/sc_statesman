@@ -2,5 +2,6 @@
 @import '_fonts.css';
 @import '_base.css';
 
+@import 'modules/_logo.css';
 @import 'modules/_prose.css';
 @import 'modules/_pagination.css';

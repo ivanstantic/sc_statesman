@@ -22,9 +22,7 @@
         <div class="container w-[90%] max-w-[1344px] flex flex-wrap items-center justify-between py-4 md:py-8">
             <!-- Logo -->
             <div class="flex-shrink-0">
-                <a href="/">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/logo.svg" alt="SC Statesman Logo" class="w-36 md:w-54 h-auto" />
-                </a>
+                <?php the_custom_logo(); ?>
             </div>
 
             <!-- Navigation Links -->

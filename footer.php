@@ -38,31 +38,63 @@
             <div class="grid grid-cols-1 md:grid-cols-5 gap-6 text-center md:text-left">
                 <!-- Logo Section -->
                 <div class="flex flex-col items-center md:items-start">
-                    <a href="#">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/logo.svg" alt="SC Statesman Logo" class="w-40 h-auto mb-6" />
-                    </a>
+                    <?php the_custom_logo(); ?>
                 </div>
 
-                <!-- About Us Section -->
+                <!-- Footer Menu 1st -->
                 <div>
-                    <h3 class="text-lg font-bold">About Us</h3>
-                    <ul class="mt-4 space-y-2">
-                        <li><a href="/about/" class="hover:text-gray-300">Our Mission</a></li>
-                        <li><a href="#subscribe" class="hover:text-gray-300">Subscribe</a></li>
-                    </ul>
+                    <?php
+                        $menu_location = 'scs_footer_menu_1st';
+                        $locations = get_nav_menu_locations();
+                    ?>
+                    <?php if ( isset($locations[$menu_location] ) ) : ?>
+                        <?php
+                            $menu = wp_get_nav_menu_object( $locations[$menu_location] );
+                            $menu_items = wp_get_nav_menu_items( $menu->term_id );
+                        ?>
+                        <?php if ( $menu_items ) : ?>
+                            <h3 class="text-lg font-bold">
+                                <?php echo $menu->name; ?>
+                            </h3>
+                            <ul class="mt-4 space-y-2">
+                                <?php foreach( $menu_items as $item ) : ?>
+                                    <li>
+                                        <a href="<?php echo esc_url( $item->url ); ?>" class="hover:underline">
+                                            <?php echo esc_html( $item->title ); ?>
+                                        </a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </nav>
+                        <?php endif; ?>
+                    <?php endif; ?>
                 </div>
 
-                <!-- Resources Section -->
+                <!-- Footer Menu 2nd -->
                 <div>
-                    <h3 class="text-lg font-bold">Resources</h3>
-                    <ul class="mt-4 space-y-2">
-                        <li>
-                            <a href="/terms-of-service/" class="hover:text-gray-300">Privacy Policy</a>
-                        </li>
-                        <li>
-                            <a href="/terms-of-service/" class="hover:text-gray-300">Terms of Service</a>
-                        </li>
-                    </ul>
+                    <?php
+                        $menu_location = 'scs_footer_menu_2nd';
+                        $locations = get_nav_menu_locations();
+                    ?>
+                    <?php if ( isset($locations[$menu_location] ) ) : ?>
+                        <?php
+                            $menu = wp_get_nav_menu_object( $locations[$menu_location] );
+                            $menu_items = wp_get_nav_menu_items( $menu->term_id );
+                        ?>
+                        <?php if ( $menu_items ) : ?>
+                            <h3 class="text-lg font-bold">
+                                <?php echo $menu->name; ?>
+                            </h3>
+                            <ul class="mt-4 space-y-2">
+                                <?php foreach( $menu_items as $item ) : ?>
+                                    <li>
+                                        <a href="<?php echo esc_url( $item->url ); ?>" class="hover:underline">
+                                            <?php echo esc_html( $item->title ); ?>
+                                        </a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </nav>
+                        <?php endif; ?>
+                    <?php endif; ?>
                 </div>
 
                 <!-- Follow Us Section -->
