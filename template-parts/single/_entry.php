@@ -75,7 +75,7 @@ use Theme\Template;
     <div class="xl:w-[70%] lg:w-[80%] w-[90%] flex justify-between items-center pt-[24px] pb-[0px]">
         <div class="text-[32px] font-bold">
             <p class="dark:text-white text-[#1B2228]">Related Articles</p>
-            <hr class="w-[20%] border-none h-[6px] bg-[#2D5599]" />
+            <hr class="w-[20%] border-none h-[6px] bg-red-700" />
         </div>
         <div class="flex items-center justify-center gap-2 text-[14px] text-[#4864C0] cursor-pointer">
             View more <i class="fas fa-arrow-right dark:text-white"></i>
@@ -152,7 +152,7 @@ use Theme\Template;
     <div class="w-[90%] max-w-[1344px] flex justify-between items-center pt-[24px] pb-[0px]">
         <div class="text-[32px] font-bold">
             <p class="dark:text-white text-[#1B2228]">Latest News</p>
-            <hr class="w-[20%] border-none h-[6px] bg-[#2D5599]" />
+            <hr class="w-[20%] border-none h-[6px] bg-red-700" />
         </div>
         <div class="flex items-center justify-center gap-2 text-[14px] text-[#4864C0] cursor-pointer">
             View more <i class="fas fa-arrow-right dark:text-white"></i>

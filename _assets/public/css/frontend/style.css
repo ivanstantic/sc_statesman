@@ -2246,6 +2246,15 @@ input:checked + .toggle-bg{
     color: rgb(255 255 255 / var(--tw-text-opacity));
   }
 }
+.text-red-700{
+  --tw-text-opacity: 1;
+  color: rgb(200 30 30 / 1);
+}
+@supports (color: rgb(0 0 0 / 0)){
+.text-red-700{
+    color: rgb(200 30 30 / var(--tw-text-opacity));
+  }
+}
 .antialiased{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

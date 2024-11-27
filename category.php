@@ -40,7 +40,7 @@ $most_read_posts_query = new WP_Query( $args );
                 </div>
             </div>
             <div class="w-[100%]">
-                <hr class="w-[100%] border-none h-[6px] bg-[#2D5599]">
+                <hr class="w-[100%] border-none h-[6px] bg-red-700">
             </div>
         </div>
     </header>
