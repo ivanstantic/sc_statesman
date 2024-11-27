@@ -78,6 +78,6 @@
         <?php Template::include('_core/blocks/posts/layouts/layout_c.php', [ 'query' => $query ]); ?>
     <?php endif; ?>
 
-    <hr class="border-none h-[1px] bg-[#cbd5e1]" />
+    <hr class="border-none h-[2px] bg-red-700" />
 
 </section>
