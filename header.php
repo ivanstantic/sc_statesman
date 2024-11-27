@@ -1,3 +1,8 @@
+<?php
+    global $wp;
+    $permalink = home_url( $wp->request );
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,12 +40,12 @@
                     ?>
                     <?php if ( $menu_items ) : ?>
                         <?php foreach( $menu_items as $item ) : ?>
-                            <?php if( in_array('current-menu-item', $item->classes) ) : ?>
+                            <?php if( trailingslashit( $item->url ) === trailingslashit( $permalink ) ) : ?>
                                 <span class="uppercase font-bold">
                                     <?php echo esc_html( $item->title ); ?>
                                 </span>
                             <?php else: ?>
-                                <a href="<?php echo esc_url( $item->url ); ?>" class="hover:text-gray-300 uppercase">
+                                <a href="<?php echo esc_url( $item->url ); ?>" class="hover:underline uppercase">
                                     <?php echo esc_html( $item->title ); ?>
                                 </a>
                             <?php endif; ?>
@@ -118,12 +123,12 @@
                     ?>
                     <?php if ( $menu_items ) : ?>
                         <?php foreach( $menu_items as $item ) : ?>
-                            <?php if( in_array('current-menu-item', $item->classes) ) : ?>
+                            <?php if( trailingslashit( $item->url ) === trailingslashit( $permalink ) ) : ?>
                                 <span class="uppercase font-bold">
                                     <?php echo esc_html( $item->title ); ?>
                                 </span>
                             <?php else: ?>
-                                <a href="<?php echo esc_url( $item->url ); ?>" class="hover:text-gray-300 uppercase">
+                                <a href="<?php echo esc_url( $item->url ); ?>" class="hover:underline uppercase">
                                     <?php echo esc_html( $item->title ); ?>
                                 </a>
                             <?php endif; ?>
@@ -150,12 +155,12 @@
                 <?php if ( $menu_items ) : ?>
                     <nav class="py-1.5 flex items-center space-x-6 text-sm text-[#1B3664] dark:text-[#7898FF] font-medium ">
                         <?php foreach( $menu_items as $item ) : ?>
-                            <?php if( in_array('current-menu-item', $item->classes) ) : ?>
+                            <?php if( trailingslashit( $item->url ) === trailingslashit( $permalink ) ) : ?>
                                 <span class="whitespace-nowrap uppercase font-bold">
                                     <?php echo esc_html( $item->title ); ?>
                                 </span>
                             <?php else: ?>
-                                <a href="<?php echo esc_url( $item->url ); ?>" class="hover:text-gray-300 whitespace-nowrap uppercase">
+                                <a href="<?php echo esc_url( $item->url ); ?>" class="hover:underline whitespace-nowrap uppercase">
                                     <?php echo esc_html( $item->title ); ?>
                                 </a>
                             <?php endif; ?>
