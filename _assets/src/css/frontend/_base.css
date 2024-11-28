@@ -14,3 +14,7 @@ img {
 a {
   cursor: pointer;
 }
+
+.spacer {
+  padding-bottom: 15px;
+}
