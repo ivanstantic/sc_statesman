@@ -2318,6 +2318,7 @@ a {
   cursor: pointer;
 }
 .spacer {
+  display: block;
   padding-bottom: 15px;
 }
 .custom-logo{

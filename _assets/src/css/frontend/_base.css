@@ -16,5 +16,6 @@ a {
 }
 
 .spacer {
+  display: block;
   padding-bottom: 15px;
 }
