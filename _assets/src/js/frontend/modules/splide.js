@@ -8,8 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     new Splide(sliders[i], {
       type: 'loop',
       autoplay: true,
-      interval: 3000,
+      interval: 5000,
       arrows: true,
+      pagination: false,
       gap: 16,
     }).mount();
   }

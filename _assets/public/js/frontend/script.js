@@ -6730,8 +6730,9 @@ document.addEventListener('DOMContentLoaded', function () {
     new _splidejs_splide__WEBPACK_IMPORTED_MODULE_0__["default"](sliders[i], {
       type: 'loop',
       autoplay: true,
-      interval: 3000,
+      interval: 5000,
       arrows: true,
+      pagination: false,
       gap: 16
     }).mount();
   }

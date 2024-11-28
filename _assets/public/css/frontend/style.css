@@ -1533,6 +1533,24 @@ input:checked + .toggle-bg{
 .max-w-screen-xl{
   max-width: 1280px;
 }
+.max-w-\[1394px\]{
+  max-width: 1394px;
+}
+.max-w-\[1384px\]{
+  max-width: 1384px;
+}
+.max-w-\[1374px\]{
+  max-width: 1374px;
+}
+.max-w-\[1424px\]{
+  max-width: 1424px;
+}
+.max-w-\[1524px\]{
+  max-width: 1524px;
+}
+.max-w-\[1544px\]{
+  max-width: 1544px;
+}
 .flex-1{
   flex: 1 1 0%;
 }
