@@ -4,7 +4,7 @@ use Theme\Template;
 ?>
 
 <!-- Article Header -->
-<header class="w-full flex items-center justify-center  ">
+<header class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228]">
     <div class="w-full p-4 md:p-0 max-w-[1344px]">
         <div class="flex justify-center items-center flex-col mt-[3rem]">
 
@@ -15,7 +15,7 @@ use Theme\Template;
                         <?php scs_the_category(', '); ?>
                     </div>
                 <?php endif; ?>
-                <h1 class="mt-2 text-[2rem] sm:text-[2.5rem] md:text-[2.5rem] lg:text-[3rem] leading-[52px] font-bold">
+                <h1 class="mt-2 text-[2rem] sm:text-[2.5rem] md:text-[2.5rem] lg:text-[3rem] leading-[52px] font-bold dark:text-[#F2F3F4]">
                     <?php the_title(); ?>
                 </h1>
                 <!-- <p class="text-gray-600 mt-2 text-[20px] dark:text-white">
@@ -46,12 +46,14 @@ use Theme\Template;
                             <?php the_author(); ?>
                         </a>
                     </p>
-                    <!-- <p class="text-[14px] text-gray-500">Senior Reporter</p> -->
+                    <!-- <p class="text-[14px] text-gray-500 dark:text-[#F2F3F4] dark:text-opacity-40">
+                        Senior Reporter
+                    </p> -->
                 </div>
             </div>
         
             <!-- Date Section -->
-            <p class="mt-2 w-full max-w-[750px] text-[14px] text-gray-500">
+            <p class="mt-2 w-full max-w-[750px] text-[14px] text-gray-500 dark:text-[#F2F3F4] dark:text-opacity-40">
                 <?php echo get_the_date('F j, Y'); ?>
             </p>
         </div>
@@ -61,7 +63,7 @@ use Theme\Template;
 <main class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228] pt-10 pb-14">
     <div class="w-full p-4 md:p-0 max-w-[750px]">
         <div class="mx-auto pt-10 self-center border-t-2">
-            <div class="w-full max-w-none prose">
+            <div class="w-full max-w-none prose dark:prose-invert">
                 <?php the_content(); ?>
             </div>
         </div>

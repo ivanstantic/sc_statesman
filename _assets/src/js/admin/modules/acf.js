@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const observer = new MutationObserver((mutationsList) => {
-    const postTypeElement = document.querySelector('[data-name="post_type"]');
-
     for (const mutation of mutationsList) {
       if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
         for (const node of mutation.addedNodes) {
