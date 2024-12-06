@@ -151,7 +151,7 @@
                     $menu_items = wp_get_nav_menu_items( $menu->term_id );
                 ?>
                 <?php if ( $menu_items ) : ?>
-                    <nav class="py-1.5 flex items-center space-x-6 text-sm text-[#1B3664] dark:text-[#7898FF] font-medium ">
+                    <nav class="py-1.5 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-[#1B3664] dark:text-[#7898FF] font-medium ">
                         <?php foreach( $menu_items as $item ) : ?>
                             <?php if( trailingslashit( $item->url ) === trailingslashit( $permalink ) ) : ?>
                                 <span class="whitespace-nowrap uppercase font-bold">

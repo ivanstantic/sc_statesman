@@ -1664,6 +1664,13 @@ input:checked + .toggle-bg{
 .gap-y-6{
   row-gap: 1.5rem;
 }
+.gap-x-6{
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
+}
+.gap-y-3{
+  row-gap: 0.75rem;
+}
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * 0);
@@ -2941,15 +2948,6 @@ a {
 @supports (color: rgb(0 0 0 / 0)){
 .dark\:text-white:is(.dark *){
     color: rgb(255 255 255 / var(--tw-text-opacity));
-  }
-}
-.dark\:\!text-\[\#F2F3F4\]:is(.dark *){
-  --tw-text-opacity: 1 !important;
-  color: rgb(242 243 244 / 1) !important;
-}
-@supports (color: rgb(0 0 0 / 0)){
-.dark\:\!text-\[\#F2F3F4\]:is(.dark *){
-    color: rgb(242 243 244 / var(--tw-text-opacity)) !important;
   }
 }
 .dark\:text-opacity-40:is(.dark *){
