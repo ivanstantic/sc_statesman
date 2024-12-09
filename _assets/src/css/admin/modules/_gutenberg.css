@@ -12,18 +12,16 @@
 }
 
 /* Hide Custom Blocks From The Core Page Template */
-/* .is-core-page-template {
-  [class*="editor-block-list-item-scs"] {
+.editing-page {
+  div.block-editor-block-types-list__list-item:has([class*="editor-block-list-item-scs-prose"]) {
     display: none;
   }
-
-  .block-editor-inserter__all-blocks {
-    .block-editor-inserter__panel-header:first-of-type,
-    .block-editor-inserter__panel-content:first-of-type {
-      display: none;
-    }
+}
+.editing-post, .is-core-page-template {
+  div.block-editor-block-types-list__list-item:has([class*="editor-block-list-item-scs-posts"]) {
+    display: none;
   }
-} */
+}
 
 /* Gutenberg Post/Page Title */
 .editor-styles-wrapper {

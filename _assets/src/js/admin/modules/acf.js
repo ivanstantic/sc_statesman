@@ -104,8 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Observe the entire document for changes
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
+  if (document.body) {
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  }
 });

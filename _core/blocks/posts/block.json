@@ -2,7 +2,7 @@
     "name": "scs/posts",
     "title": "Posts",
     "description": "Posts archive section.",
-    "category": "scs",
+    "category": "scs-page",
     "icon": "grid-view",
     "keywords": ["posts", "archive"],
     "acf": {

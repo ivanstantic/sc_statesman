@@ -3892,10 +3892,12 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Observe the entire document for changes
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
+  if (document.body) {
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  }
 });
 
 /***/ }),
@@ -4078,10 +4080,12 @@ __webpack_require__.r(__webpack_exports__);
   });
 
   // Start observing the document body for changes
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
+  if (document.body) {
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  }
 
   // Initialize any existing Splide elements
   var initialElements = document.querySelectorAll(splideSelector);

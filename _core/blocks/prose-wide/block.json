@@ -2,7 +2,7 @@
     "name": "scs/prose-wide",
     "title": "Prose Wide",
     "description": "Prose wide section.",
-    "category": "scs",
+    "category": "scs-prose",
     "icon": "grid-view",
     "keywords": ["prose", "wide"],
     "acf": {
