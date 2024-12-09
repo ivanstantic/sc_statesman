@@ -1,6 +1,9 @@
 
 <?php
 use Theme\Template;
+
+$title_bold = get_field( "title_bold" );
+$subtitle = get_field( "subtitle" );
 ?>
 
 <!-- Article Header -->
@@ -15,12 +18,16 @@ use Theme\Template;
                         <?php scs_the_category(', '); ?>
                     </div>
                 <?php endif; ?>
-                <h1 class="mt-2 text-[2rem] sm:text-[2.5rem] md:text-[2.5rem] lg:text-[3rem] leading-[52px] font-bold dark:text-[#F2F3F4]">
+                <h1 class="mt-2 text-[2rem] sm:text-[2.5rem] md:text-[2.5rem] lg:text-[3rem] leading-[52px] dark:text-[#F2F3F4] <?php echo join(' ', [
+                    $font_bold ? "font-bold" : "",
+                ]); ?>">
                     <?php the_title(); ?>
                 </h1>
-                <!-- <p class="text-gray-600 mt-2 text-[20px] dark:text-white">
-                    An In-depth Look at the Recent Developments Along South Carolina's Coastline
-                </p> -->
+                <?php if ( $subtitle ) : ?>
+                    <p class="text-gray-600 mt-2 text-[20px] dark:text-white">
+                        <?php echo $subtitle; ?>
+                    </p>
+                <?php endif; ?>
             </div>
 
             <!-- Image Section -->
