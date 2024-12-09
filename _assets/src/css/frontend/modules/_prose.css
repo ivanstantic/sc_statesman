@@ -17,3 +17,7 @@
 .prose p {
   @apply leading-8;
 }
+
+.prose a {
+  color: #7898FF;
+}

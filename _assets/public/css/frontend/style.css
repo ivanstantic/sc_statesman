@@ -2356,6 +2356,9 @@ a {
 .prose p{
   line-height: 2rem;
 }
+.prose a {
+  color: #7898FF;
+}
 .pagination .prev{
   margin-right: 0.625rem;
 }
