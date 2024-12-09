@@ -61,7 +61,7 @@ use Theme\Template;
 </header>
 
 <main class="w-full flex items-center justify-center bg-[#f2f3f4] dark:bg-[#1B2228] pt-10 pb-14">
-    <div class="w-full p-4 md:p-0 max-w-[750px]">
+    <div class="relative w-full p-4 md:p-0 max-w-[750px]">
         <div class="mx-auto pt-10 self-center border-t-2">
             <div class="w-full max-w-none prose dark:prose-invert">
                 <?php the_content(); ?>

@@ -17,6 +17,8 @@ function scs_register_acf_blocks() {
      * @link https://developer.wordpress.org/reference/functions/register_block_type/
      */
     register_block_type( __DIR__ . '/posts' );
+    register_block_type( __DIR__ . '/prose-wide' );
+
 }
 
 

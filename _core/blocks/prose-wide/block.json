@@ -1,0 +1,19 @@
+{
+    "name": "scs/prose-wide",
+    "title": "Prose Wide",
+    "description": "Prose wide section.",
+    "category": "scs",
+    "icon": "grid-view",
+    "keywords": ["prose", "wide"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "prose-wide.php"
+    },
+    "supports": {
+        "align": false,
+        "anchor": true,
+        "customClassName": true,
+        "innerBlocks": true,
+        "reusable": false
+    }
+}
