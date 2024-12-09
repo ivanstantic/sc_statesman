@@ -2343,7 +2343,6 @@ a {
 }
 .prose :is(h1, h2, h3, h4, h5, h6){
   font-weight: 600;
-  color: #121212;
 }
 .prose h1 {
   font-size: 1.7em;
@@ -2356,9 +2355,6 @@ a {
 }
 .prose p{
   line-height: 2rem;
-}
-.prose strong {
-  color: #121212;
 }
 .pagination .prev{
   margin-right: 0.625rem;
