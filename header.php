@@ -19,7 +19,7 @@
 <body class="w-full bg-gray-100 text-gray-900">
     <!-- Header -->
     <header class="flex items-center justify-center bg-[#1B3664] text-white">
-        <div class="container w-[90%] max-w-[1344px] flex flex-wrap items-center justify-between py-4 md:py-8">
+        <div class="container w-[90%] max-w-[1344px] flex flex-wrap items-center justify-between py-4 md:py-4">
             <!-- Logo -->
             <div class="flex-shrink-0">
                 <?php the_custom_logo(); ?>

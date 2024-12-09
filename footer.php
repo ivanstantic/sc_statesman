@@ -38,10 +38,7 @@
             <div class="grid grid-cols-1 md:grid-cols-5 gap-6 text-center md:text-left">
                 <!-- Logo Section -->
                 <div class="flex flex-col items-center md:items-start">
-                    <!-- <?php the_custom_logo(); ?> -->
-                    <a href="/">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/logo__.svg" alt="SC Statesman Logo" class="w-40 h-auto mb-6" />
-                    </a>
+                    <?php the_custom_logo(); ?>
                 </div>
 
                 <!-- Footer Menu 1st -->
