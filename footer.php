@@ -13,7 +13,7 @@
             <form
                 class="flex flex-col md:flex-row items-center justify-center gap-4"
                 method="post"
-                action="http://scstatesman.test/wp-admin/admin-ajax.php?action=tnp&na=s"
+                action="<?php echo get_site_url(); ?>/wp-admin/admin-ajax.php?action=tnp&na=s"
             >
                 <input
                     type="email"
