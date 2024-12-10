@@ -1527,6 +1527,9 @@ input:checked + .toggle-bg{
 .max-w-\[848px\]{
   max-width: 848px;
 }
+.max-w-\[966px\]{
+  max-width: 966px;
+}
 .max-w-\[996px\]{
   max-width: 996px;
 }

@@ -1,7 +1,7 @@
 
 <div class="dark:bg-[#1B2228] overflow-hidden">
     <div class="flex justify-center">
-        <a href="<?php echo esc_url( get_permalink() ); ?>" class="block w-full aspect-video">            
+        <a href="<?php echo esc_url( get_permalink() ); ?>" class="block w-full aspect-video rounded-lg overflow-hidden">            
             <?php the_post_thumbnail('thumbnail_small_cropped', [ 'class' => 'w-full h-full object-cover' ]); ?> 
         </a>
     </div>
@@ -21,7 +21,11 @@
         </p>
         <?php if ( ! isset( $hide_excerpt ) || ! $hide_excerpt ) : ?>
             <p class="text-[16px] text-black dark:text-white mt-1">
-                <?php scs_the_excerpt_with_char_limit(); ?>
+                <?php if ( $excerpt_length ) : ?>
+                    <?php scs_the_excerpt_with_char_limit( $excerpt_length ); ?>
+                <?php else : ?>
+                    <?php scs_the_excerpt_with_char_limit(); ?>
+                <?php endif; ?>
             </p>
         <?php endif; ?>
     </div>

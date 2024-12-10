@@ -12,7 +12,7 @@ $subtitle = get_field( "subtitle" );
         <div class="flex justify-center items-center flex-col mt-[3rem]">
 
             <!-- Header Section -->
-            <div class="w-full max-w-[750px]">
+            <div class="w-full max-w-[966px] m-x-auto">
                 <?php if ( !empty(scs_get_the_category()) ) : ?>
                     <div class="text-[#4864c0] text-[14px] font-bold font-roboto-serif">
                         <?php scs_the_category(', '); ?>
@@ -31,16 +31,11 @@ $subtitle = get_field( "subtitle" );
             </div>
 
             <!-- Image Section -->
-            <div class="mt-6 w-full max-w-[996px] aspect-[996/474] overflow-hidden">
-                <?php if ( has_post_thumbnail() ) : ?>
+            <?php if ( has_post_thumbnail() ) : ?>
+                <div class="mt-6 w-full max-w-[996px] aspect-[996/474] overflow-hidden">
                     <?php the_post_thumbnail('thumbnail_single', [ 'class' => 'w-full h-full object-cover rounded-lg shadow-lg' ]); ?>
-                <?php endif; ?>
-                <!-- <img
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/article-hero.png" 
-                    alt="South Carolina Coastline" 
-                    class="rounded-lg shadow-lg"
-                /> -->
-            </div>
+                </div>
+            <?php endif; ?>
             
             <!-- Author Info Section -->
             <div class="mt-4 w-full max-w-[750px] flex items-center">
