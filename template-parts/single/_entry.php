@@ -2,7 +2,7 @@
 <?php
 use Theme\Template;
 
-$title_bold = get_field( "title_bold" );
+$is_title_bold = get_field( "is_title_bold" ) ?? true;
 $subtitle = get_field( "subtitle" );
 ?>
 
@@ -19,7 +19,7 @@ $subtitle = get_field( "subtitle" );
                     </div>
                 <?php endif; ?>
                 <h1 class="mt-2 text-[2rem] sm:text-[2.5rem] md:text-[2.5rem] lg:text-[3rem] leading-[52px] dark:text-[#F2F3F4] <?php echo join(' ', [
-                    $title_bold ? "font-bold" : "",
+                    $is_title_bold ? "font-bold" : "",
                 ]); ?>">
                     <?php the_title(); ?>
                 </h1>

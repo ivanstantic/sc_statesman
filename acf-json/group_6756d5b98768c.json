@@ -5,7 +5,7 @@
         {
             "key": "field_6756d7dd3d570",
             "label": "Title Bold",
-            "name": "title_bold",
+            "name": "is_title_bold",
             "aria-label": "",
             "type": "true_false",
             "instructions": "",
@@ -17,7 +17,7 @@
                 "id": ""
             },
             "message": "",
-            "default_value": 0,
+            "default_value": 1,
             "allow_in_bindings": 0,
             "ui_on_text": "",
             "ui_off_text": "",
@@ -63,5 +63,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733744661
+    "modified": 1733836851
 }
