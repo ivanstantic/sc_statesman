@@ -1482,6 +1482,9 @@ input:checked + .toggle-bg{
 .w-64{
   width: 16rem;
 }
+.w-9{
+  width: 2.25rem;
+}
 .w-\[100\%\]{
   width: 100%;
 }
@@ -1544,6 +1547,9 @@ input:checked + .toggle-bg{
 }
 .max-w-screen-xl{
   max-width: 1280px;
+}
+.max-w-\[750x\]{
+  max-width: 750x;
 }
 .flex-1{
   flex: 1 1 0%;
@@ -1713,6 +1719,9 @@ input:checked + .toggle-bg{
   margin-bottom: calc(1rem * 0);
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
+.self-start{
+  align-self: flex-start;
+}
 .self-center{
   align-self: center;
 }
@@ -1764,6 +1773,15 @@ input:checked + .toggle-bg{
 }
 .border-none{
   border-style: none;
+}
+.border-\[\#494E53\]{
+  --tw-border-opacity: 1;
+  border-color: rgb(73 78 83 / 1);
+}
+@supports (color: rgb(0 0 0 / 0)){
+.border-\[\#494E53\]{
+    border-color: rgb(73 78 83 / var(--tw-border-opacity));
+  }
 }
 .border-blue-600{
   --tw-border-opacity: 1;
@@ -2141,6 +2159,15 @@ input:checked + .toggle-bg{
 @supports (color: rgb(0 0 0 / 0)){
 .text-\[\#1B3664\]{
     color: rgb(27 54 100 / var(--tw-text-opacity));
+  }
+}
+.text-\[\#1b2229\]{
+  --tw-text-opacity: 1;
+  color: rgb(27 34 41 / 1);
+}
+@supports (color: rgb(0 0 0 / 0)){
+.text-\[\#1b2229\]{
+    color: rgb(27 34 41 / var(--tw-text-opacity));
   }
 }
 .text-\[\#4864C0\]{
@@ -3162,9 +3189,6 @@ a {
   .md\:text-\[2\.5rem\]{
     font-size: 2.5rem;
   }
-  .md\:text-\[28px\]{
-    font-size: 28px;
-  }
   .md\:text-\[32px\]{
     font-size: 32px;
   }
@@ -3180,8 +3204,23 @@ a {
   }
 }
 @media (min-width: 1024px){
+  .lg\:absolute{
+    position: absolute;
+  }
   .lg\:right-\[8rem\]{
     right: 8rem;
+  }
+  .lg\:left-0{
+    left: 0px;
+  }
+  .lg\:top-0{
+    top: 0px;
+  }
+  .lg\:mb-0{
+    margin-bottom: 0px;
+  }
+  .lg\:flex{
+    display: flex;
   }
   .lg\:w-\[70\%\]{
     width: 70%;
@@ -3189,14 +3228,26 @@ a {
   .lg\:w-\[80\%\]{
     width: 80%;
   }
+  .lg\:w-full{
+    width: 100%;
+  }
   .lg\:max-w-none{
     max-width: none;
+  }
+  .lg\:max-w-\[996px\]{
+    max-width: 996px;
   }
   .lg\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .lg\:grid-cols-4{
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .lg\:flex-row{
+    flex-direction: row;
+  }
+  .lg\:flex-col{
+    flex-direction: column;
   }
   .lg\:justify-start{
     justify-content: flex-start;
@@ -3207,6 +3258,9 @@ a {
     margin-right: calc(3rem * var(--tw-space-x-reverse));
     margin-left: calc(3rem * calc(1 - 0));
     margin-left: calc(3rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+  .lg\:self-auto{
+    align-self: auto;
   }
   .lg\:px-6{
     padding-left: 1.5rem;
@@ -3231,9 +3285,6 @@ a {
   }
   .lg\:text-\[1rem\]{
     font-size: 1rem;
-  }
-  .lg\:text-\[32px\]{
-    font-size: 32px;
   }
   .lg\:text-\[3rem\]{
     font-size: 3rem;
