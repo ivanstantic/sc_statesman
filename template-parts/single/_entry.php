@@ -4,8 +4,6 @@ use Theme\Template;
 
 $is_title_bold = get_field( "is_title_bold" ) ?? true;
 $subtitle = get_field( "subtitle" );
-
-var_dump(get_field("featured"));
 ?>
 
 <!-- Article Header -->
