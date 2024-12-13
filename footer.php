@@ -34,7 +34,7 @@
 
     <!-- Footer -->
     <footer class="flex items-center justify-center bg-[#1B3664] text-white">
-        <div class="container w-[90%] max-w-[1344px] pt-[48px] pb-[88px]">
+        <div class="container w-[90%] max-w-[1344px] min-h-[290px] pt-[48px] pb-[88px]">
             <div class="grid grid-cols-1 md:grid-cols-5 gap-6 text-center md:text-left">
                 <!-- Logo Section -->
                 <div class="flex flex-col items-center md:items-start">
@@ -99,19 +99,19 @@
 
                 <!-- Follow Us Section -->
                 <div>
-                    <h3 class="text-lg font-bold">Follow Us</h3>
+                    <!-- <h3 class="text-lg font-bold">Follow Us</h3>
                     <ul class="mt-4 space-y-2">
                         <li><a href="#" class="hover:text-gray-300">Facebook</a></li>
                         <li><a href="#" class="hover:text-gray-300">Twitter</a></li>
                         <li><a href="#" class="hover:text-gray-300">Instagram</a></li>
-                    </ul>
+                    </ul> -->
                 </div>
 
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/Tree.png" alt="SC Statesman Logo" class="absolute max-w-[258px] h-auto 2xl:right-[20rem] xl:right-[15rem] lg:right-[8rem] md:right-[8rem] sm:right-[2rem]" />
 
                 <!-- Social Icons Section -->
                 <div class="flex justify-center md:justify-end space-x-4">
-                    <a href="#">
+                    <!-- <a href="#">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/icons/Fb.svg" alt="Facebook Logo" class="w-6 h-auto" />
                     </a>
                     <a href="#">
@@ -119,7 +119,7 @@
                     </a>
                     <a href="#">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/_assets/public/images/icons/twitter-icon.svg" alt="Twitter Logo" class="w-6 h-auto" />
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>

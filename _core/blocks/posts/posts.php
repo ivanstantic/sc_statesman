@@ -5,6 +5,7 @@
     $view_more_url = get_field( 'view_more_url' );
     $layout = get_field( 'layout' );
 
+    $featured_first = get_field( 'featured_first' );
     $posts_per_page = get_field( 'posts_per_page' );
     $post_type = get_field('post_type');
     $order = get_field('order');
@@ -41,6 +42,11 @@
 
     if ( !empty( $offset ) ) {
         $query['offset'] = $offset;
+    }
+
+    if ( $featured_first ) {
+        $query['meta_key'] = 'featured';
+        $query['orderby'] = array('meta_value_num' => $order, 'date' => $order);
     }
 ?>
 

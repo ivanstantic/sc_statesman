@@ -70,6 +70,27 @@
             "placeholder": ""
         },
         {
+            "key": "field_675c29f1a7a7a",
+            "label": "Featured First",
+            "name": "featured_first",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "This will pull the Featured posts to the top of the query.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_674491ce52df8",
             "label": "Posts",
             "name": "",
@@ -139,5 +160,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732744973
+    "modified": 1734093625
 }
