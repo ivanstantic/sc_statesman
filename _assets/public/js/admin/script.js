@@ -3777,10 +3777,6 @@ function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 document.addEventListener('DOMContentLoaded', function () {
-  function findPostTypeElement(node) {
-    if (node.nodeType !== Node.ELEMENT_NODE) return null;
-    return node.matches('[data-name="post_type"]') ? node : node.querySelector('[data-name="post_type"]');
-  }
   var observer = new MutationObserver(function (mutationsList) {
     var _iterator = _createForOfIteratorHelper(mutationsList),
       _step;
@@ -3791,22 +3787,34 @@ document.addEventListener('DOMContentLoaded', function () {
           var _iterator2 = _createForOfIteratorHelper(mutation.addedNodes),
             _step2;
           try {
-            var _loop = function _loop() {
-              var node = _step2.value;
-              var postTypeElement = findPostTypeElement(node);
-              if (postTypeElement) {
-                // Prepare fields
-                var postTypeFieldKey = postTypeElement.getAttribute('data-key');
-                if (postTypeFieldKey) {
+            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+              var addedNode = _step2.value;
+              if (addedNode.nodeType !== Node.ELEMENT_NODE) continue;
+
+              // Find all post_type fields in this added node
+              var postTypeElements = addedNode.querySelectorAll('[data-name="post_type"]');
+              if (postTypeElements.length) {
+                postTypeElements.forEach(function (postTypeElement) {
+                  var postTypeFieldKey = postTypeElement.getAttribute('data-key');
+                  if (!postTypeFieldKey) return;
                   var postTypesField = acf.getField(postTypeFieldKey);
-                  var categoriesElement = document.querySelector('[data-name="category_list"]');
+                  if (!postTypesField) return;
+
+                  // Find the local container holding these fields
+                  var container = postTypeElement.closest('.acf-row, .acf-fields, .block-editor-block-list__block, .editor-post-panel');
+                  // Adjust the selector above if needed to correctly identify the container that holds category_list and tag_list fields.
+
+                  if (!container) return;
+
+                  // Find category_list field within the same container
+                  var categoriesElement = container.querySelector('[data-name="category_list"]');
                   if (categoriesElement) {
                     var updateCategories = function updateCategories(selectedPostTypes) {
                       var data = new FormData();
                       data.append('action', acfDynamicData.fields.categories);
                       data.append('post_types', JSON.stringify(selectedPostTypes));
 
-                      // Get currently selected values before we overwrite the select
+                      // Store previously selected values to reapply them after rebuilding options
                       var previouslySelected = categoriesField.val() || [];
                       fetch(acfDynamicData.ajax_url, {
                         method: 'POST',
@@ -3832,18 +3840,18 @@ document.addEventListener('DOMContentLoaded', function () {
                       })["catch"](function (error) {
                         return console.error('Error:', error);
                       });
-                    }; // Init
+                    }; // Init with current post types selected
                     var categoriesField = acf.getField(categoriesElement.getAttribute('data-key'));
-                    var selectedPostTypes = postTypesField.val();
-                    updateCategories(selectedPostTypes);
+                    updateCategories(postTypesField.val());
 
-                    // Trigger updates on post type selection change
+                    // Update categories on post type change
                     postTypesField.on('change', function () {
-                      var selectedPostTypes = postTypesField.val();
-                      updateCategories(selectedPostTypes);
+                      updateCategories(postTypesField.val());
                     });
                   }
-                  var tagsElement = document.querySelector('[data-name="tag_list"]');
+
+                  // Find tag_list field within the same container
+                  var tagsElement = container.querySelector('[data-name="tag_list"]');
                   if (tagsElement) {
                     var updateTags = function updateTags(selectedPostTypes) {
                       var data = new FormData();
@@ -3876,20 +3884,15 @@ document.addEventListener('DOMContentLoaded', function () {
                       });
                     }; // Init
                     var tagsField = acf.getField(tagsElement.getAttribute('data-key'));
-                    var _selectedPostTypes = postTypesField.val();
-                    updateTags(_selectedPostTypes);
+                    updateTags(postTypesField.val());
 
-                    // Trigger updates on post type selection change
+                    // Update tags on post type change
                     postTypesField.on('change', function () {
-                      var selectedPostTypes = postTypesField.val();
-                      updateTags(selectedPostTypes);
+                      updateTags(postTypesField.val());
                     });
                   }
-                }
+                });
               }
-            };
-            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-              _loop();
             }
           } catch (err) {
             _iterator2.e(err);
