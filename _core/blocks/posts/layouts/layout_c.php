@@ -18,6 +18,7 @@
 
                         <div class="lg:flex-5 w-full md:w-[50%] mb-4">
                             <?php Template::include('template-parts/archive/_entry-grid.php', [
+                                'thumbnail_size' => 'thumbnail_hero_cropped',
                                 'excerpt_length' => 250,
                             ]); ?>
                         </div>

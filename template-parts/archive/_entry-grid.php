@@ -2,7 +2,7 @@
 <div class="dark:bg-[#1B2228] overflow-hidden">
     <div class="flex justify-center">
         <a href="<?php echo esc_url( get_permalink() ); ?>" class="block w-full aspect-video rounded-lg overflow-hidden">            
-            <?php the_post_thumbnail('thumbnail_small_cropped', [ 'class' => 'w-full h-full object-cover' ]); ?> 
+            <?php the_post_thumbnail($thumbnail_size ?? 'thumbnail_small_cropped', [ 'class' => 'w-full h-full object-cover' ]); ?> 
         </a>
     </div>
     <div class="py-4">
