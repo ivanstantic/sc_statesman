@@ -17,6 +17,8 @@
     $exclude_posts_list = get_field('post__not_in');
     $offset = get_field('offset');
 
+    var_dump($category_list);
+
     $query = array(
         'post_type'      => $post_type,
         'posts_per_page' => isset( $posts_per_page ) ? $posts_per_page : 1,
