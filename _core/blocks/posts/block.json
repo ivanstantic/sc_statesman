@@ -10,6 +10,7 @@
         "renderTemplate": "posts.php"
     },
     "supports": {
+        "mode": false,
         "align": false,
         "anchor": true,
         "customClassName": true,

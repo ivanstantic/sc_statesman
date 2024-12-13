@@ -3773,6 +3773,7 @@ var SplideRenderer = /*#__PURE__*/function () {
   \*************************************/
 /***/ (() => {
 
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
@@ -3787,104 +3788,113 @@ document.addEventListener('DOMContentLoaded', function () {
           var _iterator2 = _createForOfIteratorHelper(mutation.addedNodes),
             _step2;
           try {
-            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+            var _loop = function _loop() {
               var addedNode = _step2.value;
-              if (addedNode.nodeType !== Node.ELEMENT_NODE) continue;
+              if (addedNode.nodeType !== Node.ELEMENT_NODE) return "continue";
 
               // Find all post_type fields in this added node
-              var postTypeElements = addedNode.querySelectorAll('[data-name="post_type"]');
-              if (postTypeElements.length) {
-                postTypeElements.forEach(function (postTypeElement) {
-                  var postTypeFieldKey = postTypeElement.getAttribute('data-key');
-                  if (!postTypeFieldKey) return;
-                  var postTypesField = acf.getField(postTypeFieldKey);
-                  if (!postTypesField) return;
+              var postTypeElement = addedNode.querySelector('[data-name="post_type"]');
+              if (postTypeElement) {
+                var postTypeFieldKey = postTypeElement.getAttribute('data-key');
+                if (!postTypeFieldKey) return {
+                  v: void 0
+                };
+                var postTypesField = acf.getField(postTypeFieldKey);
+                if (!postTypesField) return {
+                  v: void 0
+                };
 
-                  // Find the closest container that holds all related fields
-                  var container = postTypeElement.closest('.acf-fields');
-                  if (!container) return;
+                // Find the closest container that holds all related fields
+                var container = postTypeElement.closest('.acf-fields');
+                if (!container) return {
+                  v: void 0
+                };
 
-                  // Now find category_list and tag_list within the same container
-                  var categoriesElement = container.querySelector('[data-name="category_list"]');
-                  var tagsElement = container.querySelector('[data-name="tag_list"]');
-                  if (categoriesElement) {
-                    var updateCategories = function updateCategories(selectedPostTypes) {
-                      var data = new FormData();
-                      data.append('action', acfDynamicData.fields.categories);
-                      data.append('post_types', JSON.stringify(selectedPostTypes));
-                      var previouslySelected = categoriesField.val() || [];
-                      fetch(acfDynamicData.ajax_url, {
-                        method: 'POST',
-                        body: data
-                      }).then(function (response) {
-                        return response.json();
-                      }).then(function (result) {
-                        if (result.success) {
-                          var $select = categoriesField.$el.find('select');
-                          $select.empty();
-                          result.data.categories.forEach(function (category) {
-                            var option = document.createElement('option');
-                            option.value = category.term_id;
-                            option.textContent = category.name;
-                            $select.append(option);
-                          });
+                // Now find category_list and tag_list within the same container
+                var categoriesElement = container.querySelector('[data-name="category_list"]');
+                var tagsElement = container.querySelector('[data-name="tag_list"]');
+                if (categoriesElement) {
+                  var updateCategories = function updateCategories(selectedPostTypes) {
+                    var data = new FormData();
+                    data.append('action', acfDynamicData.fields.categories);
+                    data.append('post_types', JSON.stringify(selectedPostTypes));
+                    var previouslySelected = categoriesField.val() || [];
+                    fetch(acfDynamicData.ajax_url, {
+                      method: 'POST',
+                      body: data
+                    }).then(function (response) {
+                      return response.json();
+                    }).then(function (result) {
+                      if (result.success) {
+                        var $select = categoriesField.$el.find('select');
+                        $select.empty();
+                        result.data.categories.forEach(function (category) {
+                          var option = document.createElement('option');
+                          option.value = category.term_id;
+                          option.textContent = category.name;
+                          $select.append(option);
+                        });
 
-                          // Reapply previously selected values
-                          if (previouslySelected.length > 0) {
-                            $select.val(previouslySelected).trigger('change');
-                          }
+                        // Reapply previously selected values
+                        if (previouslySelected.length > 0) {
+                          $select.val(previouslySelected).trigger('change');
                         }
-                      })["catch"](function (error) {
-                        return console.error('Error:', error);
-                      });
-                    }; // Init
-                    var categoriesField = acf.getField(categoriesElement.getAttribute('data-key'));
-                    updateCategories(postTypesField.val());
-                    // Trigger update on post type change
-                    postTypesField.on('change', function () {
-                      return updateCategories(postTypesField.val());
+                      }
+                    })["catch"](function (error) {
+                      return console.error('Error:', error);
                     });
-                  }
-                  if (tagsElement) {
-                    var updateTags = function updateTags(selectedPostTypes) {
-                      var data = new FormData();
-                      data.append('action', acfDynamicData.fields.tags);
-                      data.append('post_types', JSON.stringify(selectedPostTypes));
-                      var previouslySelectedTags = tagsField.val() || [];
-                      fetch(acfDynamicData.ajax_url, {
-                        method: 'POST',
-                        body: data
-                      }).then(function (response) {
-                        return response.json();
-                      }).then(function (result) {
-                        if (result.success) {
-                          var $select = tagsField.$el.find('select');
-                          $select.empty();
-                          result.data.tags.forEach(function (tag) {
-                            var option = document.createElement('option');
-                            option.value = tag.term_id;
-                            option.textContent = tag.name;
-                            $select.append(option);
-                          });
+                  }; // Init
+                  var categoriesField = acf.getField(categoriesElement.getAttribute('data-key'));
+                  updateCategories(postTypesField.val());
+                  // Trigger update on post type change
+                  postTypesField.on('change', function () {
+                    return updateCategories(postTypesField.val());
+                  });
+                }
+                if (tagsElement) {
+                  var updateTags = function updateTags(selectedPostTypes) {
+                    var data = new FormData();
+                    data.append('action', acfDynamicData.fields.tags);
+                    data.append('post_types', JSON.stringify(selectedPostTypes));
+                    var previouslySelectedTags = tagsField.val() || [];
+                    fetch(acfDynamicData.ajax_url, {
+                      method: 'POST',
+                      body: data
+                    }).then(function (response) {
+                      return response.json();
+                    }).then(function (result) {
+                      if (result.success) {
+                        var $select = tagsField.$el.find('select');
+                        $select.empty();
+                        result.data.tags.forEach(function (tag) {
+                          var option = document.createElement('option');
+                          option.value = tag.term_id;
+                          option.textContent = tag.name;
+                          $select.append(option);
+                        });
 
-                          // Reapply previously selected tags
-                          if (previouslySelectedTags.length > 0) {
-                            $select.val(previouslySelectedTags).trigger('change');
-                          }
+                        // Reapply previously selected tags
+                        if (previouslySelectedTags.length > 0) {
+                          $select.val(previouslySelectedTags).trigger('change');
                         }
-                      })["catch"](function (error) {
-                        return console.error('Error:', error);
-                      });
-                    }; // Init
-                    var tagsField = acf.getField(tagsElement.getAttribute('data-key'));
-                    updateTags(postTypesField.val());
-                    // Trigger update on post type change
-                    postTypesField.on('change', function () {
-                      return updateTags(postTypesField.val());
+                      }
+                    })["catch"](function (error) {
+                      return console.error('Error:', error);
                     });
-                  }
-                });
+                  }; // Init
+                  var tagsField = acf.getField(tagsElement.getAttribute('data-key'));
+                  updateTags(postTypesField.val());
+                  // Trigger update on post type change
+                  postTypesField.on('change', function () {
+                    return updateTags(postTypesField.val());
+                  });
+                }
               }
+            };
+            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+              var _ret = _loop();
+              if (_ret === "continue") continue;
+              if (_typeof(_ret) === "object") return _ret.v;
             }
           } catch (err) {
             _iterator2.e(err);
