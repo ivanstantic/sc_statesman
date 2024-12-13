@@ -16,23 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
               const postTypesField = acf.getField(postTypeFieldKey);
               if (!postTypesField) return;
 
-              // Find the local container holding these fields
-              const container = postTypeElement.closest('.acf-row, .acf-fields, .block-editor-block-list__block, .editor-post-panel'); 
-              // Adjust the selector above if needed to correctly identify the container that holds category_list and tag_list fields.
-
+              // Find the closest container that holds all related fields
+              const container = postTypeElement.closest('.acf-fields');
               if (!container) return;
 
-              // Find category_list field within the same container
+              // Now find category_list and tag_list within the same container
               const categoriesElement = container.querySelector('[data-name="category_list"]');
+              const tagsElement = container.querySelector('[data-name="tag_list"]');
+
               if (categoriesElement) {
                 const categoriesField = acf.getField(categoriesElement.getAttribute('data-key'));
-
                 function updateCategories(selectedPostTypes) {
                   const data = new FormData();
                   data.append('action', acfDynamicData.fields.categories);
                   data.append('post_types', JSON.stringify(selectedPostTypes));
 
-                  // Store previously selected values to reapply them after rebuilding options
                   const previouslySelected = categoriesField.val() || [];
 
                   fetch(acfDynamicData.ajax_url, {
@@ -61,17 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
                   .catch(error => console.error('Error:', error));
                 }
 
-                // Init with current post types selected
+                // Init
                 updateCategories(postTypesField.val());
-
-                // Update categories on post type change
-                postTypesField.on('change', function() {
-                  updateCategories(postTypesField.val());
-                });
+                // Trigger update on post type change
+                postTypesField.on('change', () => updateCategories(postTypesField.val()));
               }
 
-              // Find tag_list field within the same container
-              const tagsElement = container.querySelector('[data-name="tag_list"]');
               if (tagsElement) {
                 const tagsField = acf.getField(tagsElement.getAttribute('data-key'));
 
@@ -110,11 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Init
                 updateTags(postTypesField.val());
-
-                // Update tags on post type change
-                postTypesField.on('change', function() {
-                  updateTags(postTypesField.val());
-                });
+                // Trigger update on post type change
+                postTypesField.on('change', () => updateTags(postTypesField.val()));
               }
             });
           }
@@ -123,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Observe the entire document for changes
+  // Observe the entire document
   if (document.body) {
     observer.observe(document.body, {
       childList: true,
