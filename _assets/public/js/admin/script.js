@@ -3801,11 +3801,13 @@ document.addEventListener('DOMContentLoaded', function () {
                   var postTypesField = acf.getField(postTypeFieldKey);
                   var categoriesElement = document.querySelector('[data-name="category_list"]');
                   if (categoriesElement) {
-                    // Function to update categories based on selected post types
                     var updateCategories = function updateCategories(selectedPostTypes) {
                       var data = new FormData();
-                      data.append('action', acfDynamicData.fields.categories); // Use the localized action for categories
+                      data.append('action', acfDynamicData.fields.categories);
                       data.append('post_types', JSON.stringify(selectedPostTypes));
+
+                      // Get currently selected values before we overwrite the select
+                      var previouslySelected = categoriesField.val() || [];
                       fetch(acfDynamicData.ajax_url, {
                         method: 'POST',
                         body: data
@@ -3813,13 +3815,19 @@ document.addEventListener('DOMContentLoaded', function () {
                         return response.json();
                       }).then(function (result) {
                         if (result.success) {
-                          categoriesField.$el.find('select').empty();
+                          var $select = categoriesField.$el.find('select');
+                          $select.empty();
                           result.data.categories.forEach(function (category) {
                             var option = document.createElement('option');
                             option.value = category.term_id;
                             option.textContent = category.name;
-                            categoriesField.$el.find('select').append(option);
+                            $select.append(option);
                           });
+
+                          // Reapply previously selected values
+                          if (previouslySelected.length > 0) {
+                            $select.val(previouslySelected).trigger('change');
+                          }
                         }
                       })["catch"](function (error) {
                         return console.error('Error:', error);
@@ -3837,11 +3845,11 @@ document.addEventListener('DOMContentLoaded', function () {
                   }
                   var tagsElement = document.querySelector('[data-name="tag_list"]');
                   if (tagsElement) {
-                    // Function to update tags based on selected post types
                     var updateTags = function updateTags(selectedPostTypes) {
                       var data = new FormData();
-                      data.append('action', acfDynamicData.fields.tags); // Use the localized action for tags
+                      data.append('action', acfDynamicData.fields.tags);
                       data.append('post_types', JSON.stringify(selectedPostTypes));
+                      var previouslySelectedTags = tagsField.val() || [];
                       fetch(acfDynamicData.ajax_url, {
                         method: 'POST',
                         body: data
@@ -3849,13 +3857,19 @@ document.addEventListener('DOMContentLoaded', function () {
                         return response.json();
                       }).then(function (result) {
                         if (result.success) {
-                          tagsField.$el.find('select').empty();
+                          var $select = tagsField.$el.find('select');
+                          $select.empty();
                           result.data.tags.forEach(function (tag) {
                             var option = document.createElement('option');
                             option.value = tag.term_id;
                             option.textContent = tag.name;
-                            tagsField.$el.find('select').append(option);
+                            $select.append(option);
                           });
+
+                          // Reapply previously selected tags
+                          if (previouslySelectedTags.length > 0) {
+                            $select.val(previouslySelectedTags).trigger('change');
+                          }
                         }
                       })["catch"](function (error) {
                         return console.error('Error:', error);

@@ -15,7 +15,7 @@ function scs_populate_category_select_field( $field ) {
     // Populate choices
     if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
         foreach ( $categories as $category ) {
-            $field['choices'][ $category->term_id ] = $category->name;
+            $field['choices'][ (string)$category->term_id ] = $category->name;
         }
     }
 

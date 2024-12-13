@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for (const node of mutation.addedNodes) {
           const postTypeElement = findPostTypeElement(node);
           if (postTypeElement) {
-            
+
             // Prepare fields
             const postTypeFieldKey = postTypeElement.getAttribute('data-key');
             if (postTypeFieldKey) {
@@ -20,11 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
               if (categoriesElement) {
                 const categoriesField = acf.getField(categoriesElement.getAttribute('data-key'));
 
-                  // Function to update categories based on selected post types
                 function updateCategories(selectedPostTypes) {
                   const data = new FormData();
-                  data.append('action', acfDynamicData.fields.categories); // Use the localized action for categories
+                  data.append('action', acfDynamicData.fields.categories);
                   data.append('post_types', JSON.stringify(selectedPostTypes));
+
+                  // Get currently selected values before we overwrite the select
+                  const previouslySelected = categoriesField.val() || [];
 
                   fetch(acfDynamicData.ajax_url, {
                     method: 'POST',
@@ -33,13 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
                   .then(response => response.json())
                   .then(result => {
                     if (result.success) {
-                      categoriesField.$el.find('select').empty();
+                      const $select = categoriesField.$el.find('select');
+                      $select.empty();
+
                       result.data.categories.forEach(category => {
                         const option = document.createElement('option');
                         option.value = category.term_id;
                         option.textContent = category.name;
-                        categoriesField.$el.find('select').append(option);
+                        $select.append(option);
                       });
+
+                      // Reapply previously selected values
+                      if (previouslySelected.length > 0) {
+                        $select.val(previouslySelected).trigger('change');
+                      }
                     }
                   })
                   .catch(error => console.error('Error:', error));
@@ -55,16 +64,17 @@ document.addEventListener('DOMContentLoaded', () => {
                   updateCategories(selectedPostTypes);
                 });
               }
-              
+
               const tagsElement = document.querySelector('[data-name="tag_list"]');
               if (tagsElement) {
                 const tagsField = acf.getField(tagsElement.getAttribute('data-key'));
 
-                // Function to update tags based on selected post types
                 function updateTags(selectedPostTypes) {
                   const data = new FormData();
-                  data.append('action', acfDynamicData.fields.tags); // Use the localized action for tags
+                  data.append('action', acfDynamicData.fields.tags);
                   data.append('post_types', JSON.stringify(selectedPostTypes));
+
+                  const previouslySelectedTags = tagsField.val() || [];
 
                   fetch(acfDynamicData.ajax_url, {
                     method: 'POST',
@@ -73,13 +83,20 @@ document.addEventListener('DOMContentLoaded', () => {
                   .then(response => response.json())
                   .then(result => {
                     if (result.success) {
-                      tagsField.$el.find('select').empty();
+                      const $select = tagsField.$el.find('select');
+                      $select.empty();
+
                       result.data.tags.forEach(tag => {
                         const option = document.createElement('option');
                         option.value = tag.term_id;
                         option.textContent = tag.name;
-                        tagsField.$el.find('select').append(option);
+                        $select.append(option);
                       });
+
+                      // Reapply previously selected tags
+                      if (previouslySelectedTags.length > 0) {
+                        $select.val(previouslySelectedTags).trigger('change');
+                      }
                     }
                   })
                   .catch(error => console.error('Error:', error));
